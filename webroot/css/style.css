@@ -1,0 +1,101 @@
+body{
+  background-color: #FCFCFC;
+  font-family: 'Roboto', sans-serif;
+}
+a {
+  color: #444; }
+
+a:hover {
+  color: #222; }
+
+.box-video-action-btns span {
+  font-size: 16px; }
+
+.label-custom-primary {
+  background: none;
+  border: 1px solid #2980B9;
+  color: #2980B9 !important; }
+
+h2.title, h3.title {
+  margin-top: 0;
+  border-left: 2px solid #E74C3C;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding-left: 10px;
+  margin-bottom: 25px;
+}
+
+h2.title {
+  font-size: 16px;
+
+}
+
+/*HOME*/
+.home-label-tag {
+  font-size: 12px;
+  border-radius: 16px;
+  font-weight: bold;
+  padding: 5px 12px;
+  line-height: 25px; }
+
+.home-row-header {
+  margin: 20px 0; }
+
+.home-row-tags {
+  margin: 35px 0; }
+
+.home-row-artists {
+  margin: 20px 0; }
+
+
+.box-video-action-btns > div > a{
+  font-size: 16px;
+  text-decoration: none;
+  color: #EEE;
+  font-weight: normal;
+}
+.box-video-action-btns > div > a:hover{
+  color: #FFF;
+}
+.box-video-action-btns{
+  display: none;
+  width: 100%;
+  text-align: right;
+  font-weight: normal;
+  /*background-color: green;*/
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: 20px;
+  margin-bottom: 5px;
+}
+.box-video-lg-action-btns > .box-video-btns-btn{
+  width: auto;
+  float: right;
+  padding: 5px;
+  /*background-color: pink;*/
+}
+.box-video-btns-btn a {
+  text-decoration: none;
+}
+.box-video-action-btns > .box-video-btns-btn{
+  width: auto;
+  float: right;
+  padding: 5px;
+  /*background-color: pink;*/
+}
+.box-video-image-row > div > .image-wrap{
+  background-color: #000;
+}
+.box-video-image-row > div > div > img:hover{
+}
+.box-video{
+  /*background-color: green;*/
+  height: auto;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 10px;
+}
+.box-video-body{
+  height: 90px;
+}

@@ -1,0 +1,47 @@
+@import "flat_ui_colors";
+
+a{
+	color: #444;
+}
+a:hover{
+	color: #222;
+}
+
+.box-video-action-btns span{
+	font-size: 16px;
+}
+
+.label-custom-primary{
+	background: none;
+	border: 1px solid $flat-belize-hole;
+	color: $flat-belize-hole!important;
+}
+
+h2.title, h3.title{
+	margin-top: 0;
+	border-bottom: 1px solid $flat-alizarin;
+	text-transform: uppercase;
+	font-weight: bold;
+	padding-bottom: 5px;
+}
+h2.title{
+	font-size: 16px;
+}
+
+/*HOME*/
+.home-label-tag{
+	font-size: 12px;
+	border-radius: 16px;
+	font-weight: bold;
+	padding: 5px 12px;
+	line-height: 25px;
+}
+.home-row-header{
+	margin: 20px 0;
+}
+.home-row-tags{
+	margin: 35px 0;
+}
+.home-row-artists{
+	margin: 20px 0;
+}
