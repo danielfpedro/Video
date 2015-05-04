@@ -15,6 +15,36 @@ class SiteController extends AppController
 	{
 		# code...
 	}
+
+	public function artistProfile()
+	{
+		# code...
+	}
+
+	public function search()
+	{
+		
+	}
+
+	public function myProfile()
+	{
+		
+	}
+
+	public function stared()
+	{
+
+	}
+
+	public function myPlaylists()
+	{
+		
+	}
+
+	public function playlists()
+	{
+		
+	}
 }
 
 ?>

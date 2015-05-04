@@ -9,6 +9,7 @@
     <?= $this->Html->meta('icon') ?>
 
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
     <?= $this->Html->css('../components/bootstrap/dist/css/bootstrap.min') ?>
     <?= $this->Html->css('style') ?>

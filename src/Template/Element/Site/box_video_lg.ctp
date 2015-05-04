@@ -25,7 +25,7 @@
 	<div class="row box-video-image-row">
 		<div class="col-md-12">
 			<div class="image-wrap">
-				<?= $this->Html->image('iggy-video.jpg', ['url' => '#', 'class' => 'img-responsive']) ?>		
+				<?= $this->Html->image('iggy-video.jpg', ['url' => 	['action' => 'player'], 'class' => 'img-responsive']) ?>		
 			</div>
 		</div>
 	</div>
@@ -34,14 +34,14 @@
 		<div class="col-md-12">
 			
 			<h2>
-				<?= $this->Html->link('I\'m The New Bitch', []) ?>
+				<?= $this->Html->link('I\'m The New Bitch', ['action' => 'player']) ?>
 				<small>
-					<?= $this->Html->link('Iggy Azalea', []) ?>
+					<?= $this->Html->link('Iggy Azalea', ['action' => 'artistProfile']) ?>
 				</small>
 			</h2>
 			
 			<p class="text-muted">
-				<small>89 views, 3 dias atrás</small>
+				<small>3 dias atrás</small>
 			</p>
 		</div>
 	</div>
