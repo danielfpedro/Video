@@ -5,45 +5,8 @@
 				<?= $this->Html->image('iggy-video.jpg',
 					['url' => ['controller' => 'Site', 'action' => 'player'], 'class' => 'img-responsive']) ?>		
 
-				<div class="img-overlay" style="display: none;">
-				</div>
+				<div class="img-overlay" style="display: none;"></div>
 				
-				<div class="box-video-action-btns">				
-					<div class="box-video-btns-btn">
-						<a data-target="#" href="#" class="glyphicon glyphicon-plus dropdown-toggle" data-toggle="dropdown"></a>
-						<ul class="dropdown-menu dropdown-menu-right" role="menu">
-							<li role="presentation">
-								<a role="menuitem" tabindex="-1" href="#">
-									Rock
-								</a>
-							</li>
-							<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Samba</a></li>
-						</ul>
-					</div>
-					<div class="box-video-btns-btn">
-						<a data-target="#" href="#" class="glyphicon glyphicon-star dropdown-toggle" data-toggle="dropdown"></a>
-					</div>
-					<div class="box-video-btns-btn">
-						<a data-target="#" href="#" class="glyphicon glyphicon-share-alt dropdown-toggle" data-toggle="dropdown"></a>
-						<ul class="dropdown-menu dropdown-menu-right" role="menu">
-							<li role="presentation">
-								<a role="menuitem" tabindex="-1" href="#">
-									Facebook
-								</a>
-							</li>
-							<li role="presentation">
-								<a role="menuitem" tabindex="-1" href="#">
-									Twitter
-								</a>
-							</li>
-							<li role="presentation">
-								<a role="menuitem" tabindex="-1" href="#">
-									Google+
-								</a>
-							</li>
-						</ul>
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>
@@ -51,14 +14,36 @@
 	<div class="row box-video-body">
 		<div class="col-md-12">
 			
-			<h4>
+			<?php switch ($size) {
+				case 'lg':
+					$openH = '<h3>';
+					$closeH = '</h3>';
+					break;
+				
+				default:
+					$openH = '<h4>';
+					$closeH = '</h4>';
+					break;
+			} ?>
+			<?= $openH ?>
 				<?= $this->Html->link('I\'m The New Bitch', ['controller' => 'Site', 'action' => 'player']) ?>
 				<small>
 					<?= $this->Html->link('Iggy Azalea', ['controller' => 'Site', 'action' => 'artistProfile']) ?>
 				</small>
-			</h4>
+			<?= $closeH ?>
 			
-			<p class="text-muted">
+			<p class="text-muted" style="margin-top: -3px;">
+				<div class="video-btns-action pull-right">				
+					<a href="#modal-share">
+						<span class="glyphicon glyphicon-share-alt"></span>
+					</a>
+					<a href="#">
+						<span class="glyphicon glyphicon-star"></span>
+					</a>
+					<a href="#modal-playlists">
+						<span class="glyphicon glyphicon-plus"></span>
+					</a>
+				</div>
 				<small>3 dias atrás</small>
 			</p>
 		</div>

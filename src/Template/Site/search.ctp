@@ -1,8 +1,6 @@
-<div class="container">
+<?= $this->element('Site/header') ?>
 
-	<?= $this->element('Site/header') ?>
-
-	<?= $this->element('Site/tags_header') ?>
+<div class="container" style="margin-top: 40px;">
 
 	<div class="row">
 		<div class="col-md-9">
@@ -24,7 +22,7 @@
 			<div class="row">
 				<?php foreach (['Iggy Azalea', 'Cone Crew Diretoria', 'Eminem', 'Ariana Grande'] as $key => $value): ?>
 					<div class="col-md-12" style="margin-bottom: 15px;">
-						<?= $this->element('Site/box_artists', ['artistName' => $value, 'imageSize' => 50]) ?>
+						<?= $this->element('Site/box_artists', ['artistName' => $value, 'imageSize' => 60]) ?>
 					</div>
 				<?php endforeach ?>
 			</div>

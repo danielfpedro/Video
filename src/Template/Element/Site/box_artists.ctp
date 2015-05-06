@@ -1,6 +1,6 @@
 <div class="media">
 	<div class="media-left">
-		<?php $url = ['controller' => 'site', 'action' => 'action'] ?>
+		<?php $url = ['controller' => 'Site', 'action' => 'artistProfile'] ?>
 		<?= $this->Html->image('kanye-avatar.jpg', [
 			'class' => 'media-object img-circle',
 			'width' => $imageSize,
@@ -8,9 +8,9 @@
 		]) ?>
 	</div>
 	<div class="media-body">
-		<h5 class="media-heading">
+		<p class="media-heading" style="font-size: 15px; margin-top: 6px;">
 			<?= $this->Html->link($artistName, $url) ?>
-		</h5>
+		</p>
 		<button type="button" class="btn btn-danger btn-xs">Seguir</button>
 	</div>
 </div>

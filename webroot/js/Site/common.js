@@ -2,12 +2,11 @@ $(function(){
 
 
 	$('.box-video').hover(function(e) {
-	    $(this).find('.img-overlay').fadeIn('fast');
-	    $(this).find('.box-video-action-btns, .box-artists-actions-btns').stop().fadeIn('slow');
+	    $(this).find('.img-overlay').stop().fadeIn('slow');
+	    $(this).find('.video-btns-action').stop().fadeIn('fast');
 	}, function(e) {
-		$(this).find('.img-overlay').fadeOut('fast');
-	    $(this).find('.box-video-action-btns, .box-artists-actions-btns').stop().fadeOut('slow');
-	    $('[data-toggle="dropdown"]').parent().removeClass('open');
+		$(this).find('.img-overlay').stop().fadeOut('slow');
+	    $(this).find('.video-btns-action').stop().fadeOut('fast');
 	});
 
 	$('#player-wrap').click(function(){

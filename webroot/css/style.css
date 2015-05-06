@@ -1,6 +1,10 @@
 .container{
 
 }
+.navbar-default {
+    background-color: #f4f4f4;
+    border-bottom: 1px solid #ddd;
+}
 body{
   background-color: #FCFCFC;
   font-family: 'Roboto', sans-serif;
@@ -11,8 +15,6 @@ a {
 a:hover {
   color: #222; }
 
-.box-video-action-btns span {
-  font-size: 16px; }
 
 .label-custom-primary {
   background: none;
@@ -49,6 +51,10 @@ h2.title {
   padding: 5px 12px;
   line-height: 25px; }
 
+.header-wrap{
+  background-color: #FFF;
+  border-bottom: 1px solid #E7E7E7;
+}
 .home-row-header {
   margin: 20px 0; }
 
@@ -59,26 +65,9 @@ h2.title {
   margin: 20px 0; }
 
 
-.box-video-action-btns > div > a{
-  font-size: 16px;
-  text-decoration: none;
-  color: #EEE;
-  font-weight: normal;
-}
+
 .box-video-action-btns > div > a:hover{
   color: #FFF;
-}
-.box-video-action-btns{
-  display: none;
-  width: 100%;
-  text-align: right;
-  font-weight: normal;
-  /*background-color: green;*/
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  margin-right: 20px;
-  margin-bottom: 5px;
 }
 .box-video-lg-action-btns > .box-video-btns-btn{
   width: auto;
@@ -175,5 +164,12 @@ h2.title {
   height:100%;
   width: 100%;
   z-index:0;
-  opacity:  0.4;
+  opacity:  0.2;
+}
+
+.box-video-action-btns > a > span{
+  color: #FFF;
+}
+.video-btns-action{
+  display: none;
 }

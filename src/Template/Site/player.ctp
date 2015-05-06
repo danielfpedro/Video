@@ -48,29 +48,12 @@
 				<div class="col-md-9">
 					<h2>Work</h2>
 					<p class="text-muted">123 Visualizações</p>
-					<?= $this->element('Site/box_artists', ['artistName' => 'Iggy Azalea', 'imageSize' => '40']) ?>
+					<?= $this->element('Site/box_artists', ['artistName' => 'Iggy Azalea', 'imageSize' => 60, 'header' => 'h5']) ?>
 				</div>
 				<div class="col-md-3">
-					<button type="button" class="btn btn-primary btn-block" style="margin-top: 20px;" data-toggle="dropdown">
+					<a href="#modal-share" class="btn btn-primary btn-block" style="margin-top: 20px;">
 						Compartilhar <span class="glyphicon glyphicon-share-alt"></span>
-					</button>
-					<ul class="dropdown-menu dropdown-menu-right" role="menu">
-						<li role="presentation">
-							<a role="menuitem" tabindex="-1" href="#">
-								Facebook
-							</a>
-						</li>
-						<li role="presentation">
-							<a role="menuitem" tabindex="-1" href="#">
-								Twitter
-							</a>
-						</li>
-						<li role="presentation">
-							<a role="menuitem" tabindex="-1" href="#">
-								Google+
-							</a>
-						</li>
-					</ul>
+					</a>
 				</div>
 			</div>
 		</div>
@@ -83,10 +66,14 @@
 				</div>
 			</div>
 		<?php else: ?>
-			<div class="col-md-3">
-				<?php foreach ([0, 0, 0, 0, 0, 0] as $key => $value): ?>
-					<?= $this->element('Site/box_video_horizontal', ['imageSize' => 90])?>
-				<?php endforeach ?>
+			<div class="col-md-3" >
+				<div class="row" >
+					<?php foreach ([0, 0, 0, 0, 0, 0] as $key => $value): ?>
+						<div class="col-md-12" >
+							<?= $this->element('Site/box_video_horizontal', ['imageSize' => 90])?>
+						</div>
+					<?php endforeach ?>
+				</div>
 			</div>
 		<?php endif ?>
 	</div>
