@@ -19,13 +19,13 @@
 						<small>1 dia atrás</small>
 					</p>
 					<div class="video-btns-action" style="margin-top: -2px; position: absolute;">
-						<a href="#modal-share">
+						<a href="#modal-share" data-toggle="modal">
 							<span class="glyphicon glyphicon-share-alt"></span>
 						</a>
 						<a href="#">
 							<span class="glyphicon glyphicon-star"></span>
 						</a>
-						<a href="#modal-playlists">
+						<a href="#modal-playlists" data-toggle="modal">
 							<span class="glyphicon glyphicon-plus"></span>
 						</a>
 					</div>

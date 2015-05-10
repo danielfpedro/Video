@@ -1,23 +1,23 @@
 <?= $this->element('Site/header') ?>
 
-
-	<div class="container">
-
-		<?= $this->element('Site/tags_header') ?>
-
-		<div class="row" style="margin-bottom: 60px;">
-			
+<div style="background-color: #FFF;background-image: url(../img/bg-topo.fw.png); background-size: cover; background-position: top center">
+	<div class="container" style="padding: 80px 0 0 0;">
+		<!--<?= $this->element('Site/tags_header') ?>-->
+		
+		
+			<div class="row" style="margin-top: 10px; font-size: #FFF;">
 				<div class="col-md-6">
 					<?= $this->element('Site/box_video_lg') ?>
 				</div>
 				<div class="col-md-6">
 					<?= $this->element('Site/box_video_lg') ?>
 				</div>
-		</div>
-
+			</div>
+		
 	</div>
+</div>
 
-<div class="container">
+<div class="container" style="margin-top: 30px;">
 
 	<div class="row">
 		<div class="col-md-12">
@@ -34,8 +34,14 @@
 		</div>
 	</div>
 
-	<div class="row" style="margin-top: 60px; ">
-		<div class="col-md-3">
+	<div class="row" style="margin-bottom: 60px; margin-top: 60px;">
+		<div class="col-md-12">
+			<?= $this->element('Site/ad_horizontal') ?>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-4">
 			<h2 class="title">
 				Novidades
 			</h2>
@@ -61,7 +67,7 @@
 				<?php endforeach ?>
 			</div>
 		</div>
-		<div class="col-md-6">
+		<div class="col-md-5">
 			<h2 class="title">
 				#Trends
 			</h2>

@@ -45,6 +45,13 @@ class SiteController extends AppController
 	{
 		
 	}
+
+	public function playlistsModal($id = null)
+	{
+		$this->layout = 'ajax';
+
+		
+	}
 }
 
 ?>

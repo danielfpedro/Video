@@ -84,7 +84,7 @@
 		</div>
 	</div>
 </div> -->
-<nav class="navbar navbar-default navbar-fixed-top" >
+<nav class="navbar navbar-inverse navbar-fixed-top" >
 	<div class="container" >
 
 <div class="navbar-header" >
@@ -209,4 +209,3 @@
 		</ul> -->
 	</div>
 </nav>
-<div style="margin-bottom: 45px;"></div>
