@@ -5,14 +5,14 @@
 		<!--<?= $this->element('Site/tags_header') ?>-->
 		
 		
-			<div class="row" style="margin-top: 10px; font-size: #FFF;">
-				<div class="col-md-6">
-					<?= $this->element('Site/box_video_lg') ?>
-				</div>
-				<div class="col-md-6">
-					<?= $this->element('Site/box_video_lg') ?>
-				</div>
+		<div class="row" style="margin-top: 10px; font-size: #FFF;">
+			<div class="col-md-6">
+				<?= $this->element('Site/box_video_lg') ?>
 			</div>
+			<div class="col-md-6">
+				<?= $this->element('Site/box_video_lg') ?>
+			</div>
+		</div>
 		
 	</div>
 </div>
@@ -25,9 +25,9 @@
 				Artistas no topo
 			</h2>
 			<div class="row">
-				<?php foreach (['Eminem', 'Kanye West', 'Cone Crew Diretoria', 'Lil Wayne', 'Drake', 'Madonna'] as $key => $value): ?>
+				<?php foreach (['Eminem', 'Kanye West', 'Cone Crew Diretoria', 'Drake', 'Madonna', 'Iggy Azalea'] as $key => $value): ?>
 					<div class="col-md-2">
-						<?= $this->element('Site/box_artists', ['artistName' => $this->Text->truncate($value, 10), 'imageSize' => 60, 'fontSize' => '16px']) ?>
+						<?= $this->element('Site/box_artists', ['artistName' => $this->Text->truncate($value, 20), 'imageSize' => 60, 'fontSize' => '16px']) ?>
 					</div>
 				<?php endforeach ?>
 			</div>
@@ -47,7 +47,7 @@
 			</h2>
 		
 			<div class="row" style="">
-				<?php foreach ([0, 1, 2, 3, 4, 5, 6, 7, 0, 0, 0, 0] as $item): ?>
+				<?php foreach ([0, 1, 2, 3, 4, 5, 6, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] as $item): ?>
 					<div class="col-md-12">
 						<?= $this->element('Site/box_video_horizontal', ['imageSize' => 120]) ?>
 					</div>
@@ -60,7 +60,7 @@
 			</h2>
 		
 			<div class="row">
-				<?php foreach ([0, 1, 2, 3, 4, 5, 6, 7, 0, 0, 0, 0] as $item): ?>
+				<?php foreach ([0, 1, 2, 3, 4, 5, 6] as $item): ?>
 					<div class="col-md-12">
 						<?= $this->element('Site/box_video', ['size' => 'md']) ?>
 					</div>
@@ -73,7 +73,7 @@
 			</h2>
 		
 			<div class="row">
-				<?php foreach ([0, 1, 2, 3, 4, 5, 6, 7, 0, 0, 0, 0] as $item): ?>
+				<?php foreach ([0, 1, 2, 3, 4] as $item): ?>
 					<div class="col-md-12" style="margin-bottom: 15px;">
 						<?= $this->element('Site/box_video', ['size' => 'lg']) ?>
 					</div>

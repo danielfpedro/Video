@@ -29,6 +29,11 @@ $(function(){
 		}, timeoutValue);	
 	});
 
+	//Truncar texto, precisa de largura em PX
+	var $trunc = $('.truncate');
+	var truncParentW = $trunc.parent().width();
+	$trunc.css('width', truncParentW + 'px');
+
 	// $('div.box-video-action-btns-row').mouseover(function(e) {
 	//     e.stopPropagation();
 	// }).mouseout(function(e) {

@@ -8,9 +8,9 @@
 		]) ?>
 	</div>
 	<div class="media-body">
-		<p class="media-heading" style="font-size: 15px; margin-top: 6px;">
-			<?= $this->Html->link($artistName, $url) ?>
-		</p>
-		<button type="button" class="btn btn-danger btn-xs">Seguir</button>
+		<div class="media-heading truncate" style="font-size: 15px; margin-top: 6px;">
+			<?= $this->Html->link($artistName, $url, ['style' => 'font-weight: bold;']) ?>
+		</div>
+		<button type="button" class="btn btn-default btn-xs">Seguir</button>
 	</div>
 </div>

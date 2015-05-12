@@ -12,9 +12,9 @@
 	</div>
 			
 	<div class="row box-video-body">
-		<div class="col-md-12" style="padding: 0 10px;">
+		<div class="col-md-12">
 			
-			<div style="padding: 0 20px;"><?php switch ($size) {
+			<?php switch ($size) {
 							case 'lg':
 								$openH = '<h3>';
 								$closeH = '</h3>';
@@ -43,7 +43,7 @@
 								</a>
 							</div>
 							<small>3 dias atrás</small>
-						</p></div>
+						</p>
 		</div>
 	</div>
 </div>

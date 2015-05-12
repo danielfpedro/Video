@@ -51,7 +51,7 @@
 					<?= $this->element('Site/box_artists', ['artistName' => 'Iggy Azalea', 'imageSize' => 60, 'header' => 'h5']) ?>
 				</div>
 				<div class="col-md-3">
-					<a href="#modal-share" class="btn btn-primary btn-block" style="margin-top: 20px;">
+					<a href="#modal-share" data-toggle="modal" class="btn btn-primary btn-block" style="margin-top: 20px;">
 						Compartilhar <span class="glyphicon glyphicon-share-alt"></span>
 					</a>
 				</div>
@@ -61,7 +61,7 @@
 			<div class="col-md-3" id="playlist">
 				<div style="overflow: auto; height: 100%;">
 					<?php foreach ([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] as $key => $value): ?>
-						<?= $this->element('Site/box_video_horizontal', ['imageSize' => 90])?>
+						<?= $this->element('Site/box_video_horizontal', ['imageSize' => 70])?>
 					<?php endforeach ?>
 				</div>
 			</div>
@@ -70,7 +70,7 @@
 				<div class="row" >
 					<?php foreach ([0, 0, 0, 0, 0, 0] as $key => $value): ?>
 						<div class="col-md-12" >
-							<?= $this->element('Site/box_video_horizontal', ['imageSize' => 90])?>
+							<?= $this->element('Site/box_video_horizontal', ['imageSize' => 70])?>
 						</div>
 					<?php endforeach ?>
 				</div>
