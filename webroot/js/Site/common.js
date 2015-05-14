@@ -1,6 +1,5 @@
 $(function(){
 
-
 	$('.box-video').hover(function(e) {
 	    $(this).find('.img-overlay').stop().fadeIn('slow');
 	    $(this).find('.video-btns-action').stop().fadeIn('fast');

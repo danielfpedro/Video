@@ -1,17 +1,17 @@
 <?= $this->element('Site/header') ?>
+<?= $this->Html->script('Site/home', ['inline' => false]) ?>
 
-<div style="background-color: #FFF;background-image: url(../img/bg-topo.fw.png); background-size: cover; background-position: top center">
+<div style="background-color: #F2F2F2; background-size: cover; background-position: top center">
 	<div class="container" style="padding: 80px 0 0 0;">
 		<!--<?= $this->element('Site/tags_header') ?>-->
 		
 		
-		<div class="row" style="margin-top: 10px; font-size: #FFF;">
-			<div class="col-md-6">
-				<?= $this->element('Site/box_video_lg') ?>
-			</div>
-			<div class="col-md-6">
-				<?= $this->element('Site/box_video_lg') ?>
-			</div>
+		<div class="row" style="margin-top: 10px;">
+			<?php foreach ($destaques as $destaque): ?>
+				<div class="col-md-6">
+					<?= $this->element('Site/box_video_lg', ['video' => $destaque]) ?>
+				</div>
+			<?php endforeach ?>
 		</div>
 		
 	</div>
@@ -49,7 +49,7 @@
 			<div class="row" style="">
 				<?php foreach ([0, 1, 2, 3, 4, 5, 6, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] as $item): ?>
 					<div class="col-md-12">
-						<?= $this->element('Site/box_video_horizontal', ['imageSize' => 120]) ?>
+						<?= $this->element('Site/box_video_horizontal', ['imageSize' => 120, 'headerSize' => 4]) ?>
 					</div>
 				<?php endforeach ?>
 			</div>
@@ -62,7 +62,7 @@
 			<div class="row">
 				<?php foreach ([0, 1, 2, 3, 4, 5, 6] as $item): ?>
 					<div class="col-md-12">
-						<?= $this->element('Site/box_video', ['size' => 'md']) ?>
+						<?= $this->element('Site/box_video', ['headerSize' => 4]) ?>
 					</div>
 				<?php endforeach ?>
 			</div>
@@ -75,7 +75,7 @@
 			<div class="row">
 				<?php foreach ([0, 1, 2, 3, 4] as $item): ?>
 					<div class="col-md-12" style="margin-bottom: 15px;">
-						<?= $this->element('Site/box_video', ['size' => 'lg']) ?>
+						<?= $this->element('Site/box_video', ['headerSize' => 3]) ?>
 					</div>
 				<?php endforeach ?>
 			</div>

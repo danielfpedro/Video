@@ -35,9 +35,9 @@
 			<div
 				id="player-wrap"
 				class="embed-responsive embed-responsive-16by9"
-				style="background-color: #E7E7E7; background-image: url(../img/iggy-video.jpg); background-size: cover">
+				style="background-color: #E7E7E7; background-image: url(../../img/<?= $video->image_full_path ?>); background-size: cover">
 
-				<iframe data-url="https://www.youtube.com/embed/_zR6ROjoOX0?autoplay=1&modestbranding=1" id="player" class="embed-responsive-item" src="" frameborder="0" allowfullscreen></iframe>
+				<iframe data-url="https://www.youtube.com/embed/<?= $video->embed ?>?autoplay=1&modestbranding=1" id="player" class="embed-responsive-item" src="" frameborder="0" allowfullscreen></iframe>
 
 				<div id="player-placeholder" style="width: 84px; left: 50%; top: 50%; position:absolute;margin-left: -42px; margin-top: -42px; ">
 					<?= $this->Html->image('play.png', ['width' => 84]) ?>
@@ -46,9 +46,15 @@
 
 			<div class="row">
 				<div class="col-md-9">
-					<h2>Work</h2>
+					<h2><?= $video->name ?></h2>
 					<p class="text-muted">123 Visualizações</p>
-					<?= $this->element('Site/box_artists', ['artistName' => 'Iggy Azalea', 'imageSize' => 60, 'header' => 'h5']) ?>
+					<?php foreach ($video->artists as $artist): ?>
+						<?= $this->element('Site/box_artists', [
+							'artistName' => $artist->name,
+							'imageSize' => 60,
+							'header' => 'h5'
+						]) ?>
+					<?php endforeach ?>
 				</div>
 				<div class="col-md-3">
 					<a href="#modal-share" data-toggle="modal" class="btn btn-primary btn-block" style="margin-top: 20px;">

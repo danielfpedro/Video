@@ -8,9 +8,9 @@
 		]) ?>
 	</div>
 	<div class="media-body">
-		<div class="media-heading truncate" style="font-size: 15px; margin-top: 6px;">
+		<h3 class="media-heading truncate box-artists-title">
 			<?= $this->Html->link($artistName, $url, ['style' => 'font-weight: bold;']) ?>
-		</div>
-		<button type="button" class="btn btn-default btn-xs">Seguir</button>
+		</h3>
+		<button type="button" class="btn btn-success btn-xs" style="text-transform: none;">Seguir</button>
 	</div>
 </div>

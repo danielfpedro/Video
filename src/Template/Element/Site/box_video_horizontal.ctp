@@ -9,13 +9,13 @@
 					</div>
 				</div>
 				<div class="media-body" >
-					<h4 class="media-heading" >
+					<h<?= $headerSize?> class="box-video-title" style="margin-top: 0; margin-bottom: 0;">
 						<?= $this->Html->link('Work', ['action' => 'player']) ?>
 						<small>
 							<?= $this->Html->link('Iggy Azalea', ['action' => 'artistProfile']) ?>
 						</small>
-					</h4>
-					<p class="text-muted">
+					</h<?= $headerSize?>>
+					<p>
 						<small>1 dia atrás</small>
 					</p>
 					<div class="video-btns-action" style="margin-top: -2px; position: absolute;">

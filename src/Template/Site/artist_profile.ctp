@@ -1,23 +1,28 @@
-<div class="container">
+<?= $this->element('Site/header') ?>
+<?= $this->Html->script('Site/home', ['inline' => false]) ?>
 
-	<?= $this->element('Site/header') ?>
-	
-			<div class="profile-cover">
-				<div class="row">
-					<div class="col-md-2 col-md-offset-10">
-						<div class="row text-center">
-							<div class="col-md-6">
-								<h5>Seguidores</h5>
-								<h2>3K</h2>
-							</div>
-							<div class="col-md-6">
-								<h5>Vídeos</h5>
-								<h2>200</h2>
-							</div>
+<div style="background-color: #111;">
+	<div class="container">
+		<div class="profile-cover">
+			<div class="row">
+				<div class="col-md-2 col-md-offset-10">
+					<div class="row text-center">
+						<div class="col-md-6">
+							<h5>Seguidores</h5>
+							<h2>3K</h2>
+						</div>
+						<div class="col-md-6">
+							<h5>Vídeos</h5>
+							<h2>200</h2>
 						</div>
 					</div>
 				</div>
-			</div>	
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
 
 			<div class="row">
 				<div class="col-md-3 text-center" style="margin-top: -60px;">

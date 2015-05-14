@@ -1,94 +1,59 @@
+<?php
+/**
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ *
+ * Licensed under The MIT License
+ * For full copyright and license information, please see the LICENSE.txt
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
+ * @since         0.10.0
+ * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ */
+
+$cakeDescription = 'CakePHP: the rapid development php framework';
+?>
 <!DOCTYPE html>
 <html>
 <head>
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
+        <?= $cakeDescription ?>:
         <?= $this->fetch('title') ?>
     </title>
     <?= $this->Html->meta('icon') ?>
 
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-
-    <?= $this->Html->css('../components/bootstrap/dist/css/bootstrap.min') ?>
-    <?= $this->Html->css('../components/Buttons/css/buttons.min') ?>
-
-    <?= $this->Html->css('style') ?>
-
-    <?= $this->Html->script('../components/jquery/dist/jquery.min') ?>
-    <?= $this->Html->script('../components/bootstrap/dist/js/bootstrap.min') ?>
-
-    <?= $this->Html->script('../components/Buttons/js/buttons') ?>
-
-    <?= $this->Html->script('Site/common') ?>
+    <?= $this->Html->css('base.css') ?>
+    <?= $this->Html->css('cake.css') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
 <body>
-
-<div
-    class="modal fade"
-    id="modal-share">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title">Compartilhar</h4>
-            </div>
-            <div class="modal-body text-center" style="background-color: #FCFCFC;">
-                <input type="text" class="form-control input-lg" value="http://you.tube/conecrew">
-                <div class="text-center" style="padding: 30px 0 10px 0;">
-                <span class="button-wrap">
-                    <button class="button button-circle button-primary">
-                        <span class="fa fa-facebook"></span>
-                    </button>
-                </span>
-                <span class="button-wrap">
-                    <button class="button button-circle button-primary">
-                        <span class="fa fa-twitter"></span>
-                    </button>
-                </span>
-                <span class="button-wrap">
-                    <button class="button button-circle button-primary">
-                        <span class="fa fa-google-plus"></span>
-                    </button>
-                </span>
-                </div>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-
-<div
-    class="modal fade"
-    id="modal-playlists"
-    data-base-url="<?= $this->Url->build(['controller' => 'Site', 'action' => 'playlistsModal'])?>">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Playlists</h4>
-      </div>
-      <div class="modal-body">
-        <div class="text-center" id="cont-loader" style="padding: 25px 0;">
-            <span class="fa fa-spinner fa-spin fa-2x"></span>
+    <header>
+        <div class="header-title">
+            <span><?= $this->fetch('title') ?></span>
         </div>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+        <div class="header-help">
+            <span><a target="_blank" href="http://book.cakephp.org/3.0/">Documentation</a></span>
+            <span><a target="_blank" href="http://api.cakephp.org/3.0/">API</a></span>
+        </div>
+    </header>
+    <div id="container">
 
+        <div id="content">
+            <?= $this->Flash->render() ?>
 
-    <?= $this->Flash->render() ?>
-    <?= $this->fetch('content') ?>
-
-    <?= $this->element('Site/footer') ?>
-
+            <div class="row">
+                <?= $this->fetch('content') ?>
+            </div>
+        </div>
+        <footer>
+        </footer>
+    </div>
 </body>
 </html>

@@ -6,14 +6,36 @@ use App\Controller\AppController;
 
 class SiteController extends AppController
 {
+
+	public $layout = 'custom';
+
 	public function home()
 	{
-		# code...
+		$this->loadModel('Videos');
+
+		$destaques = $this->Videos->find('all', [
+			'contain' => ['Artists'],
+			'conditions' => [
+				'Videos.destaque' => 1
+			],
+			'limit' => 2
+		]);
+
+		$this->set(compact('destaques'));
 	}
 
-	public function player()
+	public function player($slug = null)
 	{
-		# code...
+		$this->loadModel('Videos');
+
+		$video = $this->Videos->find('all', [
+			'contain' => ['Artists'],
+			'conditions' => [
+				'Videos.slug' => $slug
+			]
+		])->first();
+
+		$this->set(compact('video'));
 	}
 
 	public function artistProfile()

@@ -84,7 +84,7 @@
 		</div>
 	</div>
 </div> -->
-<nav class="navbar navbar-inverse navbar-fixed-top" >
+<nav class="navbar navbar-default navbar-fixed-top" id="header">
 	<div class="container" >
 
 <div class="navbar-header" >
@@ -103,11 +103,17 @@
 
       <form class="navbar-form navbar-left" role="search">
 			<div class="form-group">
-		<input type="text" class="form-control" name="q" placeholder="Pesquisar" style="padding-left: 20px;border-radius: 40px; width: 250px;" autocomplete="off">
+		<input
+			type="text"
+			class="form-control header-input-search"
+			name="q"
+			placeholder="Pesquisar vídeos"
+			style="width: 250px;"
+			autocomplete="off">
 		
-			<button class="btn btn-default" type="button" style="border: 0; background: none;margin-left: -40px">
-				<span class="glyphicon glyphicon-search"></span>
-			</button>
+		<button class="btn btn-default" type="button" style="background: none; border: 0; box-shadow: none; margin-left: -40px;">
+			<span class="glyphicon glyphicon-search"></span>
+		</button>
 		
 	</div>
       </form>
@@ -121,10 +127,17 @@
         </ul> 
       <ul class="nav navbar-nav navbar-right">
 
+		<li>
+        	<?= $this->Html->link('<span class="fa fa-bell"></span>',
+        		['action' => 'home'],
+        		[
+        			'escape' => false
+        		]) ?>
+        </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
           <?= $this->Html->image('kanye-avatar.jpg', ['class' => 'img-circle', 'width' => 23]) ?>&nbsp;&nbsp;Daniel Pedro <span class="glyphicon glyphicon-chevron-down" style="font-size:10px;"></span></a>
-<ul class="dropdown-menu" role="menu">
+			<ul class="dropdown-menu" role="menu">
 				<li role="presentation" class="dropdown-header">
 					Minha Coleção
 				</li>
@@ -143,9 +156,7 @@
 				<li role="presentation">
 					<?= $this->Html->link('Configurações', []) ?>
 				</li>
-				<li class="divider">
-					
-				</li>
+				<li class="divider"></li>
 				<li role="presentation">
 					<?= $this->Html->link('Sair', []) ?>
 				</li>
