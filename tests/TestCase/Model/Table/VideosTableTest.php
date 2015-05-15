@@ -18,14 +18,14 @@ class VideosTableTest extends TestCase
      */
     public $fixtures = [
         'app.videos',
-        'app.starreds',
-        'app.users',
-        'app.playlists',
         'app.artists',
+        'app.artists_videos',
         'app.tags',
         'app.artists_tags',
         'app.videos_tags',
-        'app.artists_videos',
+        'app.starreds',
+        'app.users',
+        'app.playlists',
         'app.videos_playlists'
     ];
 
@@ -69,6 +69,16 @@ class VideosTableTest extends TestCase
      * @return void
      */
     public function testValidationDefault()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test buildRules method
+     *
+     * @return void
+     */
+    public function testBuildRules()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

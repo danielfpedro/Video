@@ -101,6 +101,7 @@
             <th><?= __('Destaque') ?></th>
             <th><?= __('Destaque Ordem') ?></th>
             <th><?= __('Tag Search') ?></th>
+            <th><?= __('Artist Id') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
         <?php foreach ($tag->videos as $videos): ?>
@@ -120,6 +121,7 @@
             <td><?= h($videos->destaque) ?></td>
             <td><?= h($videos->destaque_ordem) ?></td>
             <td><?= h($videos->tag_search) ?></td>
+            <td><?= h($videos->artist_id) ?></td>
 
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['controller' => 'Videos', 'action' => 'view', $videos->id]) ?>

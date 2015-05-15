@@ -27,14 +27,30 @@
 			<div class="row">
 				<div class="col-md-3 text-center" style="margin-top: -60px;">
 					<?= $this->Html->image('ariana-avatar.jpg', ['class' => 'img-circle', 'width' => '45%', 'style' => 'border: 0px solid #FFF;']) ?>
-					<h3>Ariana Grande</h3>
-					<span class="fa fa-facebook"></span> <a href="#">/ariana-grande</a>
-					<br>
-					<span class="fa fa-twitter"></span> <a href="#">@ariana_grande</a>
-					<br>
-					<span class="fa fa-link"></span> <a href="#">arianagrande.com</a>
-					<br>
-
+					<h3>
+						<?= $artist->name ?>
+					</h3>
+					<?php if ($artist->facebook_page): ?>
+						<span class="fa fa-facebook"></span>&nbsp;
+						<a href="<?= $artist->facebook_page_href ?>" target="_blank">
+							/<?= $artist->facebook_page ?>
+						</a>
+						<br>
+					<?php endif ?>
+					<?php if ($artist->twitter_profile): ?>
+						<span class="fa fa-twitter"></span>&nbsp;
+						<a href="<?= $artist->twitter_profile_href ?>" target="_blank">
+							@<?= $artist->twitter_profile ?>
+						</a>
+						<br>
+					<?php endif ?>
+					<?php if ($artist->website): ?>
+						<span class="fa fa-link"></span>&nbsp;
+						<a href="http://<?= $artist->website ?>" target="_blank">
+							<?= $artist->website ?>
+						</a>
+						<br>
+					<?php endif ?>
 					<br>
 					<button class="btn btn-primary btn-xs" style="width: 60%;">Seguir</button>
 				</div>
@@ -51,13 +67,12 @@
 									</span>
 								</div>
 							</form>
-							<h2 class="title">Vídeos</h2>
 						</div>
 					</div>
 					<div class="row">
-						<?php foreach ([0,0 ,0,0,0,0,0,0,0,0,0, 0] as $key => $value): ?>
+						<?php foreach ($videos as $video): ?>
 							<div class="col-md-3">
-								<?= $this->element('Site/box_video') ?>
+								<?= $this->element('Site/box_video', ['video' => $video, 'headerSize' => 5]) ?>
 							</div>
 						<?php endforeach ?>
 					</div>

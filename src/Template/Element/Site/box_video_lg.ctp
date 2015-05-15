@@ -21,10 +21,9 @@
 		<div class="col-md-12">
 			<div class="image-wrap">
 				<?= $this->Html->image($video->imageFullPath, [
-					'url' => [
-						'action' => 'player',
-						$video->slug
-					], 'class' => 'img-responsive']) ?>
+					'url' => $video->player_url,
+					'class' => 'img-responsive'
+				]) ?>
 				<div class="img-overlay" style="display: none;"></div>	
 			</div>
 		</div>
@@ -34,17 +33,9 @@
 		<div class="col-md-12">
 			
 			<h1 class="box-video-lg-title">
-				<?= $this->Html->link($video->name, [
-					'action' => 'player',
-					$video->slug
-				]) ?>
+				<?= $this->Html->link($video->name, $video->player_url) ?>
 				<small>
-					<?php foreach ($video->artists as $artist): ?>
-						<?= $this->Html->link($artist->name, [
-							'action' => 'artistProfile',
-							$artist->slug
-						]) ?>	
-					<?php endforeach ?>
+					<?= $this->Html->link($video->artist->name, $video->artist->profile_url) ?>	
 				</small>
 			</h3>
 		</div>

@@ -48,13 +48,11 @@
 				<div class="col-md-9">
 					<h2><?= $video->name ?></h2>
 					<p class="text-muted">123 Visualizações</p>
-					<?php foreach ($video->artists as $artist): ?>
-						<?= $this->element('Site/box_artists', [
-							'artistName' => $artist->name,
-							'imageSize' => 60,
-							'header' => 'h5'
-						]) ?>
-					<?php endforeach ?>
+					<?= $this->element('Site/box_artists', [
+						'artist' => $video->artist,
+						'imageSize' => 60,
+						'header' => 'h5'
+					]) ?>
 				</div>
 				<div class="col-md-3">
 					<a href="#modal-share" data-toggle="modal" class="btn btn-primary btn-block" style="margin-top: 20px;">
@@ -74,9 +72,9 @@
 		<?php else: ?>
 			<div class="col-md-3" >
 				<div class="row" >
-					<?php foreach ([0, 0, 0, 0, 0, 0] as $key => $value): ?>
+					<?php foreach ($videosSide as $video): ?>
 						<div class="col-md-12" >
-							<?= $this->element('Site/box_video_horizontal', ['imageSize' => 70])?>
+							<?= $this->element('Site/box_video_horizontal', ['videos' => $video, 'imageSize' => 60, 'headerSize' => 4])?>
 						</div>
 					<?php endforeach ?>
 				</div>
@@ -90,9 +88,9 @@
 				Parecidos com Iggy
 			</h2>
 			<div class="row">
-				<?php foreach ([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] as $key => $value): ?>
+				<?php foreach ($videos as $video): ?>
 					<div class="col-md-3">
-						<?= $this->element('Site/box_video') ?>
+						<?= $this->element('Site/box_video', ['video' => $video, 'headerSize' => 5]) ?>
 					</div>
 				<?php endforeach ?>
 			</div>

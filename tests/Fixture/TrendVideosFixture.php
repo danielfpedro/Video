@@ -42,7 +42,7 @@ class TrendVideosFixture extends TestFixture
     public $records = [
         [
             'id' => 1,
-            'created' => '2015-05-14 03:37:18',
+            'created' => '2015-05-15 01:36:50',
             'video_id' => 1
         ],
     ];

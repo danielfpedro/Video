@@ -25,13 +25,12 @@ class VideosTable extends Table
         $this->displayField('name');
         $this->primaryKey('id');
         $this->addBehavior('Timestamp');
+        $this->belongsTo('Artists', [
+            'foreignKey' => 'artist_id',
+            'joinType' => 'INNER'
+        ]);
         $this->hasMany('Starreds', [
             'foreignKey' => 'video_id'
-        ]);
-        $this->belongsToMany('Artists', [
-            'foreignKey' => 'video_id',
-            'targetForeignKey' => 'artist_id',
-            'joinTable' => 'artists_videos'
         ]);
         $this->belongsToMany('Playlists', [
             'foreignKey' => 'video_id',
@@ -43,6 +42,13 @@ class VideosTable extends Table
             'targetForeignKey' => 'tag_id',
             'joinTable' => 'videos_tags'
         ]);
+        // $this->belongsToMany('Artists', [
+        //     'className' => 'Artists',
+        //     'foreignKey' => 'video_id',
+        //     'targetForeignKey' => 'artist_id',
+        //     'joinTable' => 'featurings',
+        //     'propertyName' => 'featurings'
+        // ]);
     }
 
     /**
@@ -105,5 +111,18 @@ class VideosTable extends Table
             ->allowEmpty('tag_search');
 
         return $validator;
+    }
+
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
+    public function buildRules(RulesChecker $rules)
+    {
+        $rules->add($rules->existsIn(['artist_id'], 'Artists'));
+        return $rules;
     }
 }

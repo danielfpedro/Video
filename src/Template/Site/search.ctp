@@ -1,6 +1,6 @@
 <?= $this->element('Site/header') ?>
 
-<div class="container" style="margin-top: 40px;">
+<div class="container" style="margin-top: 100px;">
 
 	<div class="row">
 		<div class="col-md-9">
@@ -8,11 +8,15 @@
 				Resultado para "<?= h($this->request->query('q')) ?>"
 			</h2>
 			<div class="row">
-				<?php foreach ([0,0,0,0,0,0,0] as $key => $value): ?>
-					<div class="col-md-3">
-						<?= $this->element('Site/box_video') ?>
-					</div>
-				<?php endforeach ?>
+				<?php if ($videos): ?>
+					<?php foreach ($videos as $video): ?>
+						<div class="col-md-3">
+							<?= $this->element('Site/box_video', ['video' => $video, 'headerSize' => 4]) ?>
+						</div>
+					<?php endforeach ?>
+				<?php else: ?>
+					<h5><em>Nenhum resultado encontrado.</em></h5>
+				<?php endif ?>
 			</div>
 		</div>
 		<div class="col-md-3">
@@ -20,9 +24,9 @@
 				Artistas relacionados
 			</h2>
 			<div class="row">
-				<?php foreach (['Iggy Azalea', 'Cone Crew Diretoria', 'Eminem', 'Ariana Grande'] as $key => $value): ?>
+				<?php foreach ($artists as $artist): ?>
 					<div class="col-md-12" style="margin-bottom: 15px;">
-						<?= $this->element('Site/box_artists', ['artistName' => $value, 'imageSize' => 60]) ?>
+						<?= $this->element('Site/box_artists', ['artist' => $artist, 'imageSize' => 60]) ?>
 					</div>
 				<?php endforeach ?>
 			</div>

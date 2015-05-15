@@ -21,10 +21,10 @@ class UsersControllerTest extends IntegrationTestCase
         'app.starreds',
         'app.videos',
         'app.artists',
+        'app.artists_videos',
         'app.tags',
         'app.artists_tags',
         'app.videos_tags',
-        'app.artists_videos',
         'app.videos_playlists'
     ];
 

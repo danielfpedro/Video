@@ -15,9 +15,6 @@ class ArtistsVideo extends Entity
      * @var array
      */
     protected $_accessible = [
-        'video_id' => true,
-        'artist_id' => true,
-        'participacao' => true,
         'video' => true,
         'artist' => true,
     ];

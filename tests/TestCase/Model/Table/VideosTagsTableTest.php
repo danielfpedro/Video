@@ -19,13 +19,13 @@ class VideosTagsTableTest extends TestCase
     public $fixtures = [
         'app.videos_tags',
         'app.videos',
+        'app.artists',
+        'app.artists_videos',
+        'app.tags',
+        'app.artists_tags',
         'app.starreds',
         'app.users',
         'app.playlists',
-        'app.artists',
-        'app.tags',
-        'app.artists_tags',
-        'app.artists_videos',
         'app.videos_playlists'
     ];
 

@@ -25,16 +25,20 @@ class ArtistsTable extends Table
         $this->displayField('name');
         $this->primaryKey('id');
         $this->addBehavior('Timestamp');
+        $this->hasMany('Videos', [
+            'foreignKey' => 'artist_id'
+        ]);
         $this->belongsToMany('Tags', [
             'foreignKey' => 'artist_id',
             'targetForeignKey' => 'tag_id',
             'joinTable' => 'artists_tags'
         ]);
-        $this->belongsToMany('Videos', [
-            'foreignKey' => 'artist_id',
-            'targetForeignKey' => 'video_id',
-            'joinTable' => 'artists_videos'
-        ]);
+        // $this->belongsToMany('Videos', [
+        //     'propertyName' => 'featurings',
+        //     'foreignKey' => 'artist_id',
+        //     'targetForeignKey' => 'video_id',
+        //     'joinTable' => 'featurings'
+        // ]);
     }
 
     /**

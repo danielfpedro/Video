@@ -56,7 +56,9 @@ class VideosController extends AppController
             }
         }
         $artists = $this->Videos->Artists->find('list', ['limit' => 200]);
-        $this->set(compact('video', 'artists'));
+        $playlists = $this->Videos->Playlists->find('list', ['limit' => 200]);
+        $tags = $this->Videos->Tags->find('list', ['limit' => 200]);
+        $this->set(compact('video', 'artists', 'playlists', 'tags'));
         $this->set('_serialize', ['video']);
     }
 
@@ -70,7 +72,7 @@ class VideosController extends AppController
     public function edit($id = null)
     {
         $video = $this->Videos->get($id, [
-            'contain' => ['Artists']
+            'contain' => ['Artists', 'Playlists', 'Tags']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $video = $this->Videos->patchEntity($video, $this->request->data);
@@ -82,8 +84,9 @@ class VideosController extends AppController
             }
         }
         $artists = $this->Videos->Artists->find('list', ['limit' => 200]);
+        $playlists = $this->Videos->Playlists->find('list', ['limit' => 200]);
         $tags = $this->Videos->Tags->find('list', ['limit' => 200]);
-        $this->set(compact('video', 'artists', 'tags'));
+        $this->set(compact('video', 'artists', 'playlists', 'tags'));
         $this->set('_serialize', ['video']);
     }
 

@@ -32,8 +32,13 @@ class VideosFixture extends TestFixture
         'destaque' => ['type' => 'integer', 'length' => 4, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'destaque_ordem' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'tag_search' => ['type' => 'string', 'length' => 120, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'fixed' => null],
+        'artist_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        '_indexes' => [
+            'fk_videos_artists1_idx' => ['type' => 'index', 'columns' => ['artist_id'], 'length' => []],
+        ],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
+            'fk_videos_artists1' => ['type' => 'foreign', 'columns' => ['artist_id'], 'references' => ['artists', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',
@@ -57,13 +62,14 @@ class VideosFixture extends TestFixture
             'slug' => 'Lorem ipsum dolor sit amet',
             'tags_string' => 'Lorem ipsum dolor sit amet',
             'is_active' => 1,
-            'created' => '2015-05-14 03:37:18',
+            'created' => '2015-05-15 01:36:50',
             'descricao' => 'Lorem ipsum dolor sit amet',
-            'modified' => '2015-05-14 03:37:18',
+            'modified' => '2015-05-15 01:36:50',
             'views' => 1,
             'destaque' => 1,
             'destaque_ordem' => 1,
-            'tag_search' => 'Lorem ipsum dolor sit amet'
+            'tag_search' => 'Lorem ipsum dolor sit amet',
+            'artist_id' => 1
         ],
     ];
 }

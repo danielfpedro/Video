@@ -3,8 +3,8 @@
     <ul class="side-nav">
         <li><?= $this->Form->postLink(
                 __('Delete'),
-                ['action' => 'delete', $artistsVideo->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $artistsVideo->id)]
+                ['action' => 'delete', $artistsVideo->video_id],
+                ['confirm' => __('Are you sure you want to delete # {0}?', $artistsVideo->video_id)]
             )
         ?></li>
         <li><?= $this->Html->link(__('List Artists Videos'), ['action' => 'index']) ?></li>
@@ -19,9 +19,6 @@
     <fieldset>
         <legend><?= __('Edit Artists Video') ?></legend>
         <?php
-            echo $this->Form->input('video_id', ['options' => $videos]);
-            echo $this->Form->input('artist_id', ['options' => $artists]);
-            echo $this->Form->input('participacao');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

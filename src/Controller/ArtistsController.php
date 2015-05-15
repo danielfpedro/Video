@@ -32,7 +32,7 @@ class ArtistsController extends AppController
     public function view($id = null)
     {
         $artist = $this->Artists->get($id, [
-            'contain' => ['Tags', 'Videos']
+            'contain' => ['Videos', 'Tags']
         ]);
         $this->set('artist', $artist);
         $this->set('_serialize', ['artist']);
@@ -55,9 +55,9 @@ class ArtistsController extends AppController
                 $this->Flash->error('The artist could not be saved. Please, try again.');
             }
         }
-        $tags = $this->Artists->Tags->find('list', ['limit' => 200]);
         $videos = $this->Artists->Videos->find('list', ['limit' => 200]);
-        $this->set(compact('artist', 'tags', 'videos'));
+        $tags = $this->Artists->Tags->find('list', ['limit' => 200]);
+        $this->set(compact('artist', 'videos', 'tags'));
         $this->set('_serialize', ['artist']);
     }
 
@@ -71,7 +71,7 @@ class ArtistsController extends AppController
     public function edit($id = null)
     {
         $artist = $this->Artists->get($id, [
-            'contain' => ['Tags', 'Videos']
+            'contain' => ['Videos', 'Tags']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $artist = $this->Artists->patchEntity($artist, $this->request->data);
@@ -82,9 +82,9 @@ class ArtistsController extends AppController
                 $this->Flash->error('The artist could not be saved. Please, try again.');
             }
         }
-        $tags = $this->Artists->Tags->find('list', ['limit' => 200]);
         $videos = $this->Artists->Videos->find('list', ['limit' => 200]);
-        $this->set(compact('artist', 'tags', 'videos'));
+        $tags = $this->Artists->Tags->find('list', ['limit' => 200]);
+        $this->set(compact('artist', 'videos', 'tags'));
         $this->set('_serialize', ['artist']);
     }
 

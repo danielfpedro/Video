@@ -1,14 +1,14 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\ArtistsVideosTable;
+use App\Model\Table\FeaturingsTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\ArtistsVideosTable Test Case
+ * App\Model\Table\FeaturingsTable Test Case
  */
-class ArtistsVideosTableTest extends TestCase
+class FeaturingsTableTest extends TestCase
 {
 
     /**
@@ -17,9 +17,10 @@ class ArtistsVideosTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.artists_videos',
+        'app.featurings',
         'app.videos',
         'app.artists',
+        'app.artists_videos',
         'app.tags',
         'app.artists_tags',
         'app.videos_tags',
@@ -37,8 +38,8 @@ class ArtistsVideosTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('ArtistsVideos') ? [] : ['className' => 'App\Model\Table\ArtistsVideosTable'];
-        $this->ArtistsVideos = TableRegistry::get('ArtistsVideos', $config);
+        $config = TableRegistry::exists('Featurings') ? [] : ['className' => 'App\Model\Table\FeaturingsTable'];
+        $this->Featurings = TableRegistry::get('Featurings', $config);
     }
 
     /**
@@ -48,7 +49,7 @@ class ArtistsVideosTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->ArtistsVideos);
+        unset($this->Featurings);
 
         parent::tearDown();
     }

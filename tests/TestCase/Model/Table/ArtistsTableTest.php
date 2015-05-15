@@ -18,10 +18,15 @@ class ArtistsTableTest extends TestCase
      */
     public $fixtures = [
         'app.artists',
+        'app.videos',
+        'app.artists_videos',
+        'app.starreds',
+        'app.users',
+        'app.playlists',
+        'app.videos_playlists',
         'app.tags',
         'app.artists_tags',
-        'app.videos',
-        'app.artists_videos'
+        'app.videos_tags'
     ];
 
     /**

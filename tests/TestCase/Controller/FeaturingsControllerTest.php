@@ -1,13 +1,13 @@
 <?php
 namespace App\Test\TestCase\Controller;
 
-use App\Controller\PlaylistsController;
+use App\Controller\FeaturingsController;
 use Cake\TestSuite\IntegrationTestCase;
 
 /**
- * App\Controller\PlaylistsController Test Case
+ * App\Controller\FeaturingsController Test Case
  */
-class PlaylistsControllerTest extends IntegrationTestCase
+class FeaturingsControllerTest extends IntegrationTestCase
 {
 
     /**
@@ -16,15 +16,15 @@ class PlaylistsControllerTest extends IntegrationTestCase
      * @var array
      */
     public $fixtures = [
-        'app.playlists',
-        'app.users',
-        'app.starreds',
+        'app.featurings',
         'app.videos',
         'app.artists',
-        'app.artists_videos',
         'app.tags',
         'app.artists_tags',
         'app.videos_tags',
+        'app.starreds',
+        'app.users',
+        'app.playlists',
         'app.videos_playlists'
     ];
 

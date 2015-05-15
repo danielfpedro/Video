@@ -29,6 +29,7 @@
             echo $this->Form->input('destaque');
             echo $this->Form->input('destaque_ordem');
             echo $this->Form->input('tag_search');
+            echo $this->Form->input('artist_id');
             echo $this->Form->input('artists._ids', ['options' => $artists]);
             echo $this->Form->input('playlists._ids', ['options' => $playlists]);
             echo $this->Form->input('tags._ids', ['options' => $tags]);

@@ -17,15 +17,15 @@ class VideosControllerTest extends IntegrationTestCase
      */
     public $fixtures = [
         'app.videos',
-        'app.starreds',
-        'app.users',
-        'app.playlists',
-        'app.videos_playlists',
         'app.artists',
+        'app.artists_videos',
         'app.tags',
         'app.artists_tags',
         'app.videos_tags',
-        'app.artists_videos'
+        'app.starreds',
+        'app.users',
+        'app.playlists',
+        'app.videos_playlists'
     ];
 
     /**

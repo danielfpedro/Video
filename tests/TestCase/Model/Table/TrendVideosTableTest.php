@@ -18,7 +18,16 @@ class TrendVideosTableTest extends TestCase
      */
     public $fixtures = [
         'app.trend_videos',
-        'app.videos'
+        'app.videos',
+        'app.artists',
+        'app.artists_videos',
+        'app.tags',
+        'app.artists_tags',
+        'app.videos_tags',
+        'app.starreds',
+        'app.users',
+        'app.playlists',
+        'app.videos_playlists'
     ];
 
     /**

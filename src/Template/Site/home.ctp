@@ -25,9 +25,13 @@
 				Artistas no topo
 			</h2>
 			<div class="row">
-				<?php foreach (['Eminem', 'Kanye West', 'Cone Crew Diretoria', 'Drake', 'Madonna', 'Iggy Azalea'] as $key => $value): ?>
+				<?php foreach ($artists as $artist): ?>
 					<div class="col-md-2">
-						<?= $this->element('Site/box_artists', ['artistName' => $this->Text->truncate($value, 20), 'imageSize' => 60, 'fontSize' => '16px']) ?>
+						<?= $this->element('Site/box_artists', [
+							'artist' => $artist,
+							'imageSize' => 60,
+							'fontSize' => '16px'
+						]) ?>
 					</div>
 				<?php endforeach ?>
 			</div>
@@ -47,9 +51,13 @@
 			</h2>
 		
 			<div class="row" style="">
-				<?php foreach ([0, 1, 2, 3, 4, 5, 6, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] as $item): ?>
+				<?php foreach ($newest as $new): ?>
 					<div class="col-md-12">
-						<?= $this->element('Site/box_video_horizontal', ['imageSize' => 120, 'headerSize' => 4]) ?>
+						<?= $this->element('Site/box_video_horizontal', [
+							'video' => $new,
+							'imageSize' => 120,
+							'headerSize' => 4
+						]) ?>
 					</div>
 				<?php endforeach ?>
 			</div>
@@ -60,9 +68,9 @@
 			</h2>
 		
 			<div class="row">
-				<?php foreach ([0, 1, 2, 3, 4, 5, 6] as $item): ?>
-					<div class="col-md-12">
-						<?= $this->element('Site/box_video', ['headerSize' => 4]) ?>
+				<?php foreach ($risings as $rising): ?>
+					<div class="col-md-12" style="margin-bottom: 15px;">
+						<?= $this->element('Site/box_video', ['headerSize' => 4, 'video' => $rising]) ?>
 					</div>
 				<?php endforeach ?>
 			</div>
@@ -73,9 +81,9 @@
 			</h2>
 		
 			<div class="row">
-				<?php foreach ([0, 1, 2, 3, 4] as $item): ?>
+				<?php foreach ($trends as $trend): ?>
 					<div class="col-md-12" style="margin-bottom: 15px;">
-						<?= $this->element('Site/box_video', ['headerSize' => 3]) ?>
+						<?= $this->element('Site/box_video', ['headerSize' => 3, 'video' => $trend]) ?>
 					</div>
 				<?php endforeach ?>
 			</div>

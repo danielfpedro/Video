@@ -12,28 +12,24 @@
     <table cellpadding="0" cellspacing="0">
     <thead>
         <tr>
-            <th><?= $this->Paginator->sort('id') ?></th>
             <th><?= $this->Paginator->sort('video_id') ?></th>
             <th><?= $this->Paginator->sort('artist_id') ?></th>
-            <th><?= $this->Paginator->sort('participacao') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
     </thead>
     <tbody>
     <?php foreach ($artistsVideos as $artistsVideo): ?>
         <tr>
-            <td><?= $this->Number->format($artistsVideo->id) ?></td>
             <td>
                 <?= $artistsVideo->has('video') ? $this->Html->link($artistsVideo->video->name, ['controller' => 'Videos', 'action' => 'view', $artistsVideo->video->id]) : '' ?>
             </td>
             <td>
                 <?= $artistsVideo->has('artist') ? $this->Html->link($artistsVideo->artist->name, ['controller' => 'Artists', 'action' => 'view', $artistsVideo->artist->id]) : '' ?>
             </td>
-            <td><?= $this->Number->format($artistsVideo->participacao) ?></td>
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $artistsVideo->id]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $artistsVideo->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $artistsVideo->id], ['confirm' => __('Are you sure you want to delete # {0}?', $artistsVideo->id)]) ?>
+                <?= $this->Html->link(__('View'), ['action' => 'view', $artistsVideo->video_id]) ?>
+                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $artistsVideo->video_id]) ?>
+                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $artistsVideo->video_id], ['confirm' => __('Are you sure you want to delete # {0}?', $artistsVideo->video_id)]) ?>
             </td>
         </tr>
 

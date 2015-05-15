@@ -8,10 +8,10 @@
             )
         ?></li>
         <li><?= $this->Html->link(__('List Artists'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Tags'), ['controller' => 'Tags', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Tag'), ['controller' => 'Tags', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Videos'), ['controller' => 'Videos', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Video'), ['controller' => 'Videos', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Tags'), ['controller' => 'Tags', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Tag'), ['controller' => 'Tags', 'action' => 'add']) ?> </li>
     </ul>
 </div>
 <div class="artists form large-10 medium-9 columns">
@@ -28,8 +28,8 @@
             echo $this->Form->input('website');
             echo $this->Form->input('facebook_page');
             echo $this->Form->input('twitter_profile');
-            echo $this->Form->input('tags._ids', ['options' => $tags]);
             echo $this->Form->input('videos._ids', ['options' => $videos]);
+            echo $this->Form->input('tags._ids', ['options' => $tags]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

@@ -22,8 +22,8 @@ class ArtistsVideosTable extends Table
     public function initialize(array $config)
     {
         $this->table('artists_videos');
-        $this->displayField('id');
-        $this->primaryKey('id');
+        $this->displayField('video_id');
+        $this->primaryKey(['video_id', 'artist_id']);
         $this->belongsTo('Videos', [
             'foreignKey' => 'video_id',
             'joinType' => 'INNER'
@@ -32,26 +32,6 @@ class ArtistsVideosTable extends Table
             'foreignKey' => 'artist_id',
             'joinType' => 'INNER'
         ]);
-    }
-
-    /**
-     * Default validation rules.
-     *
-     * @param \Cake\Validation\Validator $validator Validator instance.
-     * @return \Cake\Validation\Validator
-     */
-    public function validationDefault(Validator $validator)
-    {
-        $validator
-            ->add('id', 'valid', ['rule' => 'numeric'])
-            ->allowEmpty('id', 'create');
-            
-        $validator
-            ->add('participacao', 'valid', ['rule' => 'numeric'])
-            ->requirePresence('participacao', 'create')
-            ->notEmpty('participacao');
-
-        return $validator;
     }
 
     /**

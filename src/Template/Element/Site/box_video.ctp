@@ -1,9 +1,11 @@
-<div class="box-video box-video-md" >
+<div class="box-video box-video-md">
 	<div class="row box-video-image-row">
 		<div class="col-md-12">
 			<div class="image-wrap">
-				<?= $this->Html->image('iggy-video.jpg',
-					['url' => ['controller' => 'Site', 'action' => 'player'], 'class' => 'img-responsive']) ?>		
+				<?= $this->Html->image('iggy-video.jpg', [
+					'url' => $video->player_url,
+					'class' => 'img-responsive'])
+				?>
 
 				<div class="img-overlay" style="display: none;"></div>
 				
@@ -14,17 +16,9 @@
 	<div class="row box-video-body">
 		<div class="col-md-12">
 			<h<?= $headerSize ?> class="box-video-title">
-				<?= $this->Html->link('Black Widow', [
-						'controller' => 'Site',
-						'action' => 'player'
-					],
-					[
-						'class' => ''
-
-				]) ?>
+				<?= $this->Html->link($video->name, $video->player_url) ?>
 				<small>
-					<?= $this->Html->link('Iggy Azalea', ['controller' => 'Site', 'action' => 'artistProfile']) ?> <span>part.</span> 
-					<?= $this->Html->link('Rita Ora', ['controller' => 'Site', 'action' => 'artistProfile']) ?> 
+					<?= $this->Html->link($video->artist->slug, $video->artist->profile_url) ?>
 				</small>
 			</h<?= $headerSize ?>>
 			
@@ -40,7 +34,9 @@
 						<span class="glyphicon glyphicon-plus"></span>
 					</a>
 				</div>
-				<small>3 dias atrás</small>
+				<small>
+					<?= $this->Time->timeAgoInWords($video->created) ?>
+				</small>
 			</p>
 		</div>
 	</div>

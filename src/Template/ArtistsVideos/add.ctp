@@ -13,9 +13,6 @@
     <fieldset>
         <legend><?= __('Add Artists Video') ?></legend>
         <?php
-            echo $this->Form->input('video_id', ['options' => $videos]);
-            echo $this->Form->input('artist_id', ['options' => $artists]);
-            echo $this->Form->input('participacao');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

@@ -4,19 +4,24 @@
 			<div class="media" >
 				<div class="media-left" >
 					<div style="width: 120px; position: relative">
-						<?= $this->Html->image('iggy-video.jpg', ['url' => ['action' => 'player'], 'class' => 'media-object img-responsive']) ?>
+						<?= $this->Html->image('iggy-video.jpg', [
+							'url' => $video->player_url,
+							'class' => 'media-object img-responsive'
+						]) ?>
 						<div class="img-overlay" style="display: none;"></div>
 					</div>
 				</div>
 				<div class="media-body" >
 					<h<?= $headerSize?> class="box-video-title" style="margin-top: 0; margin-bottom: 0;">
-						<?= $this->Html->link('Work', ['action' => 'player']) ?>
+						<?= $this->Html->link($video->name, $video->player_url) ?>
 						<small>
-							<?= $this->Html->link('Iggy Azalea', ['action' => 'artistProfile']) ?>
+							<?= $this->Html->link($video->artist->name, $video->artist->profile_url) ?>
 						</small>
 					</h<?= $headerSize?>>
 					<p>
-						<small>1 dia atrás</small>
+						<small>
+							<?= $this->Time->timeAgoInWords($video->created) ?>
+						</small>
 					</p>
 					<div class="video-btns-action" style="margin-top: -2px; position: absolute;">
 						<a href="#modal-share" data-toggle="modal">

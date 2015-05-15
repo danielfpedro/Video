@@ -27,14 +27,17 @@ class Video extends Entity
         'destaque' => true,
         'destaque_ordem' => true,
         'tag_search' => true,
-        'starreds' => true,
+        'artist_id' => true,
         'artists' => true,
+        'starreds' => true,
         'playlists' => true,
         'tags' => true,
-        'image_full_path' => true
+        'player_url' => true
+        // 'artists' => true
     ];
 
-    protected function _getImageFullPath() {
-        return 'videos/' . $this->_properties['image_folder'] . '/' . $this->_properties['image'];
+    protected function _getPlayerUrl()
+    {
+        return ['action' => 'player', $this->_properties['slug']];
     }
 }

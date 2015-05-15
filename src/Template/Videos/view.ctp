@@ -47,6 +47,8 @@
             <p><?= $this->Number->format($video->destaque) ?></p>
             <h6 class="subheader"><?= __('Destaque Ordem') ?></h6>
             <p><?= $this->Number->format($video->destaque_ordem) ?></p>
+            <h6 class="subheader"><?= __('Artist Id') ?></h6>
+            <p><?= $this->Number->format($video->artist_id) ?></p>
         </div>
         <div class="large-2 columns dates end">
             <h6 class="subheader"><?= __('Created') ?></h6>

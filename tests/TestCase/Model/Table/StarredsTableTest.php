@@ -19,7 +19,14 @@ class StarredsTableTest extends TestCase
     public $fixtures = [
         'app.starreds',
         'app.users',
-        'app.videos'
+        'app.playlists',
+        'app.videos',
+        'app.artists',
+        'app.artists_videos',
+        'app.tags',
+        'app.artists_tags',
+        'app.videos_tags',
+        'app.videos_playlists'
     ];
 
     /**
