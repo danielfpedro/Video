@@ -20,13 +20,7 @@ class UsersTableTest extends TestCase
         'app.users',
         'app.playlists',
         'app.starreds',
-        'app.videos',
-        'app.artists',
-        'app.artists_videos',
-        'app.tags',
-        'app.artists_tags',
-        'app.videos_tags',
-        'app.videos_playlists'
+        'app.videos'
     ];
 
     /**

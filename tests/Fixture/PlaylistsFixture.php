@@ -50,8 +50,8 @@ class PlaylistsFixture extends TestFixture
             'name' => 'Lorem ipsum dolor sit amet',
             'description' => 'Lorem ipsum dolor sit amet',
             'is_active' => 1,
-            'created' => '2015-05-15 01:36:49',
-            'modified' => '2015-05-15 01:36:49',
+            'created' => '2015-05-16 23:44:56',
+            'modified' => '2015-05-16 23:44:56',
             'random' => 1,
             'user_id' => 1
         ],

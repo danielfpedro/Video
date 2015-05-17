@@ -18,7 +18,11 @@ class VideosController extends AppController
      */
     public function index()
     {
-        $this->set('videos', $this->paginate($this->Videos));
+        $videos = $this->paginate($this->Videos->find('all', [
+            'contain' => ['Artists', 'Featurings']
+        ]));
+        $this->set('videos', $videos);
+        Debug($videos);
         $this->set('_serialize', ['videos']);
     }
 

@@ -33,12 +33,12 @@ class ArtistsTable extends Table
             'targetForeignKey' => 'tag_id',
             'joinTable' => 'artists_tags'
         ]);
-        // $this->belongsToMany('Videos', [
-        //     'propertyName' => 'featurings',
-        //     'foreignKey' => 'artist_id',
-        //     'targetForeignKey' => 'video_id',
-        //     'joinTable' => 'featurings'
-        // ]);
+        $this->belongsToMany('Featurings', [
+            'className' => 'Videos',
+            'foreignKey' => 'artist_id',
+            'targetForeignKey' => 'video_id',
+            'joinTable' => 'artists_videos'
+        ]);
     }
 
     /**

@@ -49,18 +49,7 @@
 			<h2 class="title">
 				Novidades
 			</h2>
-		
-			<div class="row" style="">
-				<?php foreach ($newest as $new): ?>
-					<div class="col-md-12">
-						<?= $this->element('Site/box_video_horizontal', [
-							'video' => $new,
-							'imageSize' => 120,
-							'headerSize' => 4
-						]) ?>
-					</div>
-				<?php endforeach ?>
-			</div>
+			<?= $this->cell('Newest', ['limit' => 10]) ?>
 		</div>
 		<div class="col-md-3">
 			<h2 class="title">

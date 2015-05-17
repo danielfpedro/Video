@@ -36,6 +36,9 @@
 				<?= $this->Html->link($video->name, $video->player_url) ?>
 				<small>
 					<?= $this->Html->link($video->artist->name, $video->artist->profile_url) ?>	
+					<?php if ($video->featurings_formated): ?>
+						<?= $this->Text->toList($video->featurings_formated) ?>
+					<?php endif ?>
 				</small>
 			</h3>
 		</div>

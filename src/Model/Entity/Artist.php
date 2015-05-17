@@ -26,28 +26,11 @@ class Artist extends Entity
         'twitter_profile' => true,
         'videos' => true,
         'tags' => true,
-        'facebook_page_href' => true,
-        'twitter_profile_href' => true,
         'profile_url' => true
-        // 'videos' => true
     ];
 
-    protected function _getFacebookPageHref()
-    {
-        if ($this->_properties['facebook_page']) {
-            return 'https://facebook.com/' . $this->_properties['facebook_page'];
-        }
-        return null;
-    }
-    protected function _getTwitterProfileHref()
-    {
-        if ($this->_properties['twitter_profile']) {
-            return 'https://twitter.com/' . $this->_properties['twitter_profile'];
-        }
-        return null;
-    }
     protected function _getProfileUrl()
     {
-        return ['action' => 'artistProfile', $this->_properties['slug']];
+        return ['controller' => 'Site', 'action' => 'artistProfile', $this->_properties['slug']];
     }
 }

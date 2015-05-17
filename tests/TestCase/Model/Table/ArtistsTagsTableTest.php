@@ -21,12 +21,7 @@ class ArtistsTagsTableTest extends TestCase
         'app.artists',
         'app.videos',
         'app.artists_videos',
-        'app.starreds',
-        'app.users',
-        'app.playlists',
-        'app.videos_playlists',
-        'app.tags',
-        'app.videos_tags'
+        'app.tags'
     ];
 
     /**

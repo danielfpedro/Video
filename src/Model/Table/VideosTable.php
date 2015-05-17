@@ -32,6 +32,12 @@ class VideosTable extends Table
         $this->hasMany('Starreds', [
             'foreignKey' => 'video_id'
         ]);
+        $this->belongsToMany('Featurings', [
+            'className' => 'Artists',
+            'foreignKey' => 'video_id',
+            'targetForeignKey' => 'artist_id',
+            'joinTable' => 'artists_videos'
+        ]);
         $this->belongsToMany('Playlists', [
             'foreignKey' => 'video_id',
             'targetForeignKey' => 'playlist_id',
@@ -42,13 +48,6 @@ class VideosTable extends Table
             'targetForeignKey' => 'tag_id',
             'joinTable' => 'videos_tags'
         ]);
-        // $this->belongsToMany('Artists', [
-        //     'className' => 'Artists',
-        //     'foreignKey' => 'video_id',
-        //     'targetForeignKey' => 'artist_id',
-        //     'joinTable' => 'featurings',
-        //     'propertyName' => 'featurings'
-        // ]);
     }
 
     /**

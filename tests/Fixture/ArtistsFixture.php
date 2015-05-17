@@ -53,8 +53,8 @@ class ArtistsFixture extends TestFixture
             'folder_image' => 'Lorem ipsum dolor sit amet',
             'slug' => 'Lorem ipsum dolor sit amet',
             'is_active' => 1,
-            'created' => '2015-05-15 01:36:49',
-            'modified' => '2015-05-15 01:36:49',
+            'created' => '2015-05-16 23:44:56',
+            'modified' => '2015-05-16 23:44:56',
             'website' => 'Lorem ipsum dolor sit amet',
             'facebook_page' => 'Lorem ipsu',
             'twitter_profile' => 'Lorem ipsum dolor sit amet'

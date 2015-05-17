@@ -24,7 +24,8 @@ class SiteController extends AppController
 
 		$destaques = $this->Videos->find('all', [
 			'contain' => [
-				'Artists'
+				'Artists',
+				'Featurings'
 			],
 			'conditions' => [
 				'Videos.destaque' => 1
@@ -39,19 +40,10 @@ class SiteController extends AppController
 			'limit' => 6
 		]);
 
-		$newest = $this->Videos->find('all', [
-			'contain' => [
-				'Artists'
-			],			
-			'conditions' => [
-				'Videos.is_active' => 1
-			],
-			'limit' => 10
-		]);
-
 		$trends = $this->Videos->find('all', [
 			'contain' => [
-				'Artists'
+				'Artists',
+				'Featurings'
 			],
 			'conditions' => [
 				'Videos.is_active' => 1
@@ -61,7 +53,8 @@ class SiteController extends AppController
 
 		$risings = $this->Videos->find('all', [
 			'contain' => [
-				'Artists'
+				'Artists',
+				'Featurings'
 			],
 			'conditions' => [
 				'Videos.is_active' => 1
@@ -69,7 +62,7 @@ class SiteController extends AppController
 			'limit' => 10
 		]);
 
-		$this->set(compact('destaques', 'artists', 'newest', 'trends', 'risings'));
+		$this->set(compact('destaques', 'artists', 'trends', 'risings'));
 	}
 
 	public function player($slug = null)
