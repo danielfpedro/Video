@@ -35,7 +35,7 @@
 			<div
 				id="player-wrap"
 				class="embed-responsive embed-responsive-16by9"
-				style="background-color: #E7E7E7; background-image: url(../../img/<?= $video->image_full_path ?>); background-size: cover">
+				style="background-color: #E7E7E7; background-image: url(../../img/<?= $video->photo_lg ?>); background-size: cover">
 
 				<iframe data-url="https://www.youtube.com/embed/<?= $video->embed ?>?autoplay=1&modestbranding=1" id="player" class="embed-responsive-item" src="" frameborder="0" allowfullscreen></iframe>
 

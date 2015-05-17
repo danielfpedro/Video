@@ -20,7 +20,7 @@
 	<div class="row box-video-image-row">
 		<div class="col-md-12">
 			<div class="image-wrap">
-				<?= $this->Html->image($video->imageFullPath, [
+				<?= $this->Html->image($video->photo_lg, [
 					'url' => $video->player_url,
 					'class' => 'img-responsive'
 				]) ?>
@@ -37,7 +37,7 @@
 				<small>
 					<?= $this->Html->link($video->artist->name, $video->artist->profile_url) ?>	
 					<?php if ($video->featurings_formated): ?>
-						<?= $this->Text->toList($video->featurings_formated) ?>
+						<?= $this->Text->toList($video->featurings_formated, '&') ?>
 					<?php endif ?>
 				</small>
 			</h3>

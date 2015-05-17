@@ -6,12 +6,19 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use Cake\ORM\Entity;
+use Cake\Event\Event;
 
 /**
  * Videos Model
  */
 class VideosTable extends Table
 {
+    protected function _initializeSchema(\Cake\Database\Schema\Table $table)
+    {
+        $table->columnType('photo', 'proffer.file');
+        return $table;
+    }
 
     /**
      * Initialize method
@@ -24,7 +31,10 @@ class VideosTable extends Table
         $this->table('videos');
         $this->displayField('name');
         $this->primaryKey('id');
+        
         $this->addBehavior('Timestamp');
+        $this->addBehavior('Sluggable', ['field' => 'name']);
+
         $this->belongsTo('Artists', [
             'foreignKey' => 'artist_id',
             'joinType' => 'INNER'
@@ -48,6 +58,39 @@ class VideosTable extends Table
             'targetForeignKey' => 'tag_id',
             'joinTable' => 'videos_tags'
         ]);
+
+        // Add the behaviour and configure any options you want
+        $this->addBehavior('Proffer.Proffer', [
+            'photo' => [    // The name of your upload field
+                'root' => WWW_ROOT . 'files', // Customise the root upload folder here, or omit to use the default
+                'dir' => 'photo_dir',   // The name of the field to store the folder
+                'thumbnailSizes' => [ // Declare your thumbnails
+                    'lg' => ['w' => 700, 'h' => 430, 'crop' => true],
+                    'md' => ['w' => 350, 'h' => 215, 'crop' => true],
+                    'sq' => ['w' => 140, 'h' => 140, 'crop' => true],
+                ],
+                'thumbnailMethod' => 'Gd'  // Options are Imagick, Gd or Gmagick
+            ]
+        ]);
+    }
+
+    public function beforeSave(Event $event, Entity $entity)
+    {
+        $entity->tags_search = $this->_buildTagsSeach($entity);
+    }
+
+    protected function _buildTagsSeach($entity)
+    {
+        $artist = $this->Artists->get($entity->artist_id);
+        $out = [];
+        $out[] = $entity->name;
+        $out[] = $artist->name;
+        if ($entity->featurings) {
+            foreach ($entity->featurings as $featuring) {
+                $out[] = $featuring->name;
+            }
+        }
+        return implode($out, ',');
     }
 
     /**
@@ -70,21 +113,9 @@ class VideosTable extends Table
             ->requirePresence('embed', 'create')
             ->notEmpty('embed');
             
-        $validator
-            ->requirePresence('image', 'create')
-            ->notEmpty('image');
-            
-        $validator
-            ->requirePresence('image_folder', 'create')
-            ->notEmpty('image_folder');
-            
-        $validator
-            ->requirePresence('slug', 'create')
-            ->notEmpty('slug');
-            
-        $validator
-            ->requirePresence('tags_string', 'create')
-            ->notEmpty('tags_string');
+        // $validator
+        //     ->requirePresence('slug', 'create')
+        //     ->notEmpty('slug');
             
         $validator
             ->add('is_active', 'valid', ['rule' => 'numeric'])
@@ -106,8 +137,16 @@ class VideosTable extends Table
             ->add('destaque_ordem', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('destaque_ordem');
             
+        // $validator
+        //     ->allowEmpty('tag_search');
+        $validator->provider('proffer', 'Proffer\Model\Validation\ProfferRules');
+        // $validator
+        //     ->add('photo', 'file', [
+        //         'rule' => ['mimeType', ['image/jpeg', 'image/png']]
+        //     ]);
         $validator
-            ->allowEmpty('tag_search');
+            ->requirePresence('photo', 'create')
+            ->allowEmpty('photo');
 
         return $validator;
     }

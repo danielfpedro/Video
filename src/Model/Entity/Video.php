@@ -19,24 +19,45 @@ class Video extends Entity
     protected $_accessible = [
         'name' => true,
         'embed' => true,
-        'image' => true,
-        'image_folder' => true,
         'slug' => true,
-        'tags_string' => true,
         'is_active' => true,
         'descricao' => true,
         'views' => true,
         'destaque' => true,
         'destaque_ordem' => true,
-        'tag_search' => true,
+        'tags_search' => true,
         'artist_id' => true,
         'artists' => true,
         'starreds' => true,
         'playlists' => true,
         'tags' => true,
         'featurings_formated' => true,
-        'player_url' => true
+        'player_url' => true,
+        'featurings' => true,
+        'photo' => true,
+        'photo_dir' => true,
+        'photo_lg' => true,
+        'photo_md' => true,
+        'photo_sq' => true
     ];
+
+    protected function _getPhotoLg()
+    {
+        return $this->_getImageFullPathImage('lg');
+    }
+    protected function _getPhotoMd()
+    {
+        return $this->_getImageFullPathImage('mg');
+    }
+    protected function _getPhotoSq()
+    {
+        return $this->_getImageFullPathImage('sq');
+    }
+
+    public function _getImageFullPathImage($prefix)
+    {
+        return '../files/videos/photo/' .$this->_properties['photo_dir']. '/' .$prefix. '_' . $this->_properties['photo'];
+    }
 
     protected function _getPlayerUrl()
     {

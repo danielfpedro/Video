@@ -12,6 +12,12 @@ use Cake\Validation\Validator;
  */
 class ArtistsTable extends Table
 {
+    protected function _initializeSchema(\Cake\Database\Schema\Table $table)
+    {
+        $table->columnType('cover_image', 'proffer.file');
+        $table->columnType('profile_image', 'proffer.file');
+        return $table;
+    }
 
     /**
      * Initialize method
@@ -25,6 +31,7 @@ class ArtistsTable extends Table
         $this->displayField('name');
         $this->primaryKey('id');
         $this->addBehavior('Timestamp');
+        $this->addBehavior('Sluggable', ['field' => 'name']);
         $this->hasMany('Videos', [
             'foreignKey' => 'artist_id'
         ]);
@@ -38,6 +45,28 @@ class ArtistsTable extends Table
             'foreignKey' => 'artist_id',
             'targetForeignKey' => 'video_id',
             'joinTable' => 'artists_videos'
+        ]);
+        // Add the behaviour and configure any options you want
+        $this->addBehavior('Proffer.Proffer', [
+            'profile_image' => [    // The name of your upload field
+                'root' => WWW_ROOT . 'files', // Customise the root upload folder here, or omit to use the default
+                'dir' => 'photo_dir',   // The name of the field to store the folder
+                'thumbnailSizes' => [ // Declare your thumbnails
+                    'md' => ['w' => 300, 'h' => 400, 'crop' => true],
+                    'sq_lg' => ['w' => 200, 'h' => 200, 'crop' => true],
+                    'sq' => ['w' => 100, 'h' => 100, 'crop' => true],
+                ],
+                'thumbnailMethod' => 'Gd'  // Options are Imagick, Gd or Gmagick
+            ],
+            'cover_image' => [    // The name of your upload field
+                'root' => WWW_ROOT . 'files', // Customise the root upload folder here, or omit to use the default
+                'dir' => 'photo_dir',   // The name of the field to store the folder
+                'thumbnailSizes' => [ // Declare your thumbnails
+                    'lg' => ['w' => 700, 'h' => 430, 'crop' => true],
+                    'md' => ['w' => 350, 'h' => 215, 'crop' => true],
+                ],
+                'thumbnailMethod' => 'Gd'  // Options are Imagick, Gd or Gmagick
+            ]
         ]);
     }
 
@@ -59,19 +88,11 @@ class ArtistsTable extends Table
             
         $validator
             ->requirePresence('profile_image', 'create')
-            ->notEmpty('profile_image');
+            ->allowEmpty('profile_image');
             
         $validator
             ->requirePresence('cover_image', 'create')
-            ->notEmpty('cover_image');
-            
-        $validator
-            ->requirePresence('folder_image', 'create')
-            ->notEmpty('folder_image');
-            
-        $validator
-            ->requirePresence('slug', 'create')
-            ->notEmpty('slug');
+            ->allowEmpty('cover_image');
             
         $validator
             ->add('is_active', 'valid', ['rule' => 'numeric'])

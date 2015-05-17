@@ -55,10 +55,8 @@ class ArtistsController extends AppController
                 $this->Flash->error('The artist could not be saved. Please, try again.');
             }
         }
-        $videos = $this->Artists->Videos->find('list', ['limit' => 200]);
         $tags = $this->Artists->Tags->find('list', ['limit' => 200]);
-        $this->set(compact('artist', 'videos', 'tags'));
-        $this->set('_serialize', ['artist']);
+        $this->set(compact('artist', 'tags'));
     }
 
     /**
@@ -82,10 +80,8 @@ class ArtistsController extends AppController
                 $this->Flash->error('The artist could not be saved. Please, try again.');
             }
         }
-        $videos = $this->Artists->Videos->find('list', ['limit' => 200]);
         $tags = $this->Artists->Tags->find('list', ['limit' => 200]);
-        $this->set(compact('artist', 'videos', 'tags'));
-        $this->set('_serialize', ['artist']);
+        $this->set(compact('artist', 'tags'));
     }
 
     /**

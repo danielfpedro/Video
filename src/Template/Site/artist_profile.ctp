@@ -26,7 +26,7 @@
 
 			<div class="row">
 				<div class="col-md-3 text-center" style="margin-top: -60px;">
-					<?= $this->Html->image('ariana-avatar.jpg', ['class' => 'img-circle', 'width' => '45%', 'style' => 'border: 0px solid #FFF;']) ?>
+					<?= $this->Html->image($artist->profile_image_sq, ['class' => 'img-circle', 'width' => '45%', 'style' => 'border: 0px solid #FFF;']) ?>
 					<h3>
 						<?= $artist->name ?>
 					</h3>

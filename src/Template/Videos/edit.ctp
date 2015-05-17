@@ -19,25 +19,19 @@
     </ul>
 </div>
 <div class="videos form large-10 medium-9 columns">
-    <?= $this->Form->create($video); ?>
+    <?= $this->Form->create($video, ['type' => 'file']); ?>
     <fieldset>
         <legend><?= __('Edit Video') ?></legend>
         <?php
-            echo $this->Form->input('name');
             echo $this->Form->input('embed');
-            echo $this->Form->input('image');
-            echo $this->Form->input('image_folder');
-            echo $this->Form->input('slug');
-            echo $this->Form->input('tags_string');
+            echo $this->Form->input('name');
+            echo $this->Form->input('photo', ['type' => 'file']);
             echo $this->Form->input('is_active');
-            echo $this->Form->input('descricao');
-            echo $this->Form->input('views');
             echo $this->Form->input('destaque');
+
             echo $this->Form->input('destaque_ordem');
-            echo $this->Form->input('tag_search');
             echo $this->Form->input('artist_id');
-            echo $this->Form->input('artists._ids', ['options' => $artists]);
-            echo $this->Form->input('playlists._ids', ['options' => $playlists]);
+            echo $this->Form->input('featurings._ids', ['options' => $artists]);
             echo $this->Form->input('tags._ids', ['options' => $tags]);
         ?>
     </fieldset>

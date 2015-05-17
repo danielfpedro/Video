@@ -15,20 +15,17 @@
     </ul>
 </div>
 <div class="artists form large-10 medium-9 columns">
-    <?= $this->Form->create($artist); ?>
+    <?= $this->Form->create($artist, ['type' => 'file']); ?>
     <fieldset>
         <legend><?= __('Edit Artist') ?></legend>
         <?php
             echo $this->Form->input('name');
-            echo $this->Form->input('profile_image');
-            echo $this->Form->input('cover_image');
-            echo $this->Form->input('folder_image');
-            echo $this->Form->input('slug');
+            echo $this->Form->input('profile_image', ['type' => 'file']);
+            echo $this->Form->input('cover_image', ['type' => 'file']);
             echo $this->Form->input('is_active');
             echo $this->Form->input('website');
             echo $this->Form->input('facebook_page');
             echo $this->Form->input('twitter_profile');
-            echo $this->Form->input('videos._ids', ['options' => $videos]);
             echo $this->Form->input('tags._ids', ['options' => $tags]);
         ?>
     </fieldset>

@@ -18,10 +18,6 @@
         <tr>
             <th><?= $this->Paginator->sort('id') ?></th>
             <th><?= $this->Paginator->sort('name') ?></th>
-            <th><?= $this->Paginator->sort('embed') ?></th>
-            <th><?= $this->Paginator->sort('image') ?></th>
-            <th><?= $this->Paginator->sort('image_folder') ?></th>
-            <th><?= $this->Paginator->sort('slug') ?></th>
             <th><?= $this->Paginator->sort('tags_string') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
@@ -29,12 +25,10 @@
     <tbody>
     <?php foreach ($videos as $video): ?>
         <tr>
-            <td><?= $this->Number->format($video->id) ?></td>
+            <td>
+                <?= $this->Number->format($video->id) ?>
+            </td>
             <td><?= h($video->name) ?></td>
-            <td><?= h($video->embed) ?></td>
-            <td><?= h($video->image) ?></td>
-            <td><?= h($video->image_folder) ?></td>
-            <td><?= h($video->slug) ?></td>
             <td><?= h($video->tags_string) ?></td>
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['action' => 'view', $video->id]) ?>

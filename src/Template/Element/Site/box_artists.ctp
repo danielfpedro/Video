@@ -1,6 +1,6 @@
 <div class="media">
 	<div class="media-left">
-		<?= $this->Html->image('kanye-avatar.jpg', [
+		<?= $this->Html->image($artist->profile_image_sq, [
 			'class' => 'media-object img-circle',
 			'width' => $imageSize,
 			'url' => $artist->profile_url

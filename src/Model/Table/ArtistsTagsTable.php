@@ -22,14 +22,14 @@ class ArtistsTagsTable extends Table
     public function initialize(array $config)
     {
         $this->table('artists_tags');
-        $this->displayField('artistas_id');
-        $this->primaryKey(['artistas_id', 'tags_id']);
+        $this->displayField('artist_id');
+        $this->primaryKey(['artist_id', 'tag_id']);
         $this->belongsTo('Artists', [
-            'foreignKey' => 'artistas_id',
+            'foreignKey' => 'artist_id',
             'joinType' => 'INNER'
         ]);
         $this->belongsTo('Tags', [
-            'foreignKey' => 'tags_id',
+            'foreignKey' => 'tag_id',
             'joinType' => 'INNER'
         ]);
     }
