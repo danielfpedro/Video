@@ -31,7 +31,9 @@ class Artist extends Entity
         'profile_image_md' => true,
         'profile_image_sq' => true,
         'facebook_page_href' => true,
-        'twitter_profile_href' => true
+        'twitter_profile_href' => true,
+        'cover_image_regular' => true,
+        'cover_image_sm' => true
 
     ];
 
@@ -56,6 +58,16 @@ class Artist extends Entity
     {
         return $this->_getImageFullPath('sq', 'profile_image');
     }
+
+    protected function _getCoverImageRegular()
+    {
+        return '../../files/artists/cover_image/'.$this->_properties['photo_dir'].'/regular_' . $this->_properties['cover_image'];
+    }
+    protected function _getCoverImageSm()
+    {
+        return $this->_getImageFullPath('sm', 'cover_image');
+    }
+
 
     public function _getImageFullPath($prefix, $field)
     {

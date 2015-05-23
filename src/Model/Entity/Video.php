@@ -47,7 +47,7 @@ class Video extends Entity
     }
     protected function _getPhotoMd()
     {
-        return $this->_getImageFullPathImage('mg');
+        return $this->_getImageFullPathImage('md');
     }
     protected function _getPhotoSq()
     {

@@ -1,32 +1,19 @@
 <?= $this->element('Site/header') ?>
 <?= $this->Html->script('Site/home', ['inline' => false]) ?>
 
-<div style="background-color: #111;">
-	<div class="container">
-		<div class="profile-cover">
-			<div class="row">
-				<div class="col-md-2 col-md-offset-10">
-					<div class="row text-center">
-						<div class="col-md-6">
-							<h5>Seguidores</h5>
-							<h2>3K</h2>
-						</div>
-						<div class="col-md-6">
-							<h5>Vídeos</h5>
-							<h2>200</h2>
-						</div>
-					</div>
-				</div>
+<div style="background-color: #111; margin-top: 65px;">
+		<div class="profile-cover" style="background-image: url(<?= $artist->cover_image_regular ?>)">
+			<div style="background-color: rgba(0, 0, 0, .6); height: 100%; width: 100%;">
+				
 			</div>
 		</div>
-	</div>
 </div>
 
 <div class="container">
 
 			<div class="row">
 				<div class="col-md-3 text-center" style="margin-top: -60px;">
-					<?= $this->Html->image($artist->profile_image_sq, ['class' => 'img-circle', 'width' => '45%', 'style' => 'border: 0px solid #FFF;']) ?>
+					<?= $this->Html->image($artist->profile_image_sq, ['class' => 'img-circle', 'width' => '50%', 'style' => 'border: 0 solid #FFF;']) ?>
 					<h3>
 						<?= $artist->name ?>
 					</h3>
@@ -55,13 +42,13 @@
 					<button class="btn btn-primary btn-xs" style="width: 60%;">Seguir</button>
 				</div>
 				<div class="col-md-9">
-					<div class="row" style="margin-top: 35px; margin-bottom: 15px;">
+					<div class="row" style="margin: 40px 0 80px 0;">
 						<div class="col-md-12">
 							<form action="/videos/site/search" method="GET" class="pull-right" style="width: 350px;">
 								<div class="input-group">
 									<input type="text" class="form-control" name="q" placeholder="Pesquisar vídeos de Ariana grande...">
 									<span class="input-group-btn">
-										<button class="btn btn-default" type="button">
+										<button class="btn btn-primary" type="button">
 											<span class="glyphicon glyphicon-search"></span>
 										</button>
 									</span>
@@ -71,7 +58,7 @@
 					</div>
 					<div class="row">
 						<?php foreach ($videos as $video): ?>
-							<div class="col-md-3">
+							<div class="col-md-4">
 								<?= $this->element('Site/box_video', ['video' => $video, 'headerSize' => 5]) ?>
 							</div>
 						<?php endforeach ?>

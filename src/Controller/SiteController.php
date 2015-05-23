@@ -6,6 +6,7 @@ use App\Controller\AppController;
 use Cake\Network\Exception\NotFoundException;
 
 use Cake\Event\Event;
+use Cake\Collection\Collection;
 
 class SiteController extends AppController
 {
@@ -124,13 +125,15 @@ class SiteController extends AppController
 
 	public function search()
 	{
+		$q = $this->request->query('q');
+		$conditions = [];
+		if ($q) {
+			$conditions[] = ['Videos.tags_search LIKE' => "%{$q}%" ];
+		}
+		$conditions[] = ['Videos.is_active' => 1];
 		$videos = $this->Videos->find('all', [
-			'contain' => [
-				'Artists'
-			],
-			'conditions' => [
-				'Videos.is_active' => 1
-			]
+			'contain' => ['Artists'],
+			'conditions' => $conditions
 		]);
 
 		$artists = [];
@@ -139,7 +142,7 @@ class SiteController extends AppController
 				$artists[] = $video->artist;
 			}
 		}
-
+		$artists = array_unique($artists, SORT_REGULAR);
 		$this->set(compact('videos', 'artists'));
 	}
 

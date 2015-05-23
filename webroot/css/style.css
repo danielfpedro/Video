@@ -139,8 +139,7 @@ h2.title {
   overflow: hidden;
   width: 100%;
   position: relative;
-  padding: 170px 20px 20px 20px;
-  background-image: url(../img/ariana_bg.png);
+  height: 180px;
   background-size: cover;
   background-position: top center;
   color: #FFF;

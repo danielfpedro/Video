@@ -94,8 +94,6 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      
-      <?= $this->Html->image('logo.png', ['class' => 'navbar-brand', 'url' => ['controller' => 'Site', 'action' => 'home']]) ?>	
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -109,6 +107,7 @@
 			name="q"
 			placeholder="Pesquisar vídeos"
 			style="width: 250px;"
+			value="<?= h($this->request->query('q'))?>"
 			autocomplete="off">
 		
 		<button class="btn btn-default" type="button" style="background: none; border: 0; box-shadow: none; margin-left: -40px;">

@@ -4,7 +4,7 @@
 			<div class="media" >
 				<div class="media-left" >
 					<div style="width: 120px; position: relative">
-						<?= $this->Html->image('iggy-video.jpg', [
+						<?= $this->Html->image($video->photo_md, [
 							'url' => $video->player_url,
 							'class' => 'media-object img-responsive'
 						]) ?>

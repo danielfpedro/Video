@@ -62,8 +62,8 @@ class ArtistsTable extends Table
                 'root' => WWW_ROOT . 'files', // Customise the root upload folder here, or omit to use the default
                 'dir' => 'photo_dir',   // The name of the field to store the folder
                 'thumbnailSizes' => [ // Declare your thumbnails
-                    'lg' => ['w' => 700, 'h' => 430, 'crop' => true],
-                    'md' => ['w' => 350, 'h' => 215, 'crop' => true],
+                    'regular' => ['w' => 1200, 'h' => 700, 'crop' => true],
+                    'sm' => ['w' => 600, 'h' => 350, 'crop' => true],
                 ],
                 'thumbnailMethod' => 'Gd'  // Options are Imagick, Gd or Gmagick
             ]

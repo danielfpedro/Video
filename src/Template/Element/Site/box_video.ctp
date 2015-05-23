@@ -2,7 +2,7 @@
 	<div class="row box-video-image-row">
 		<div class="col-md-12">
 			<div class="image-wrap">
-				<?= $this->Html->image('iggy-video.jpg', [
+				<?= $this->Html->image($video->photo_lg, [
 					'url' => $video->player_url,
 					'class' => 'img-responsive'])
 				?>
