@@ -1,10 +1,10 @@
-<div class="box-video" >
-	<div class="row"  style="margin-bottom: 15px;">
+<div class="box-video">
+	<div class="row">
 		<div class="col-md-12" >
 			<div class="media" >
 				<div class="media-left" >
-					<div style="width: 120px; position: relative">
-						<?= $this->Html->image($video->photo_md, [
+					<div style="width: <?= $imageSize?>px; position: relative">
+						<?= $this->Html->image($video->photo_lg, [
 							'url' => $video->player_url,
 							'class' => 'media-object img-responsive'
 						]) ?>
@@ -16,13 +16,19 @@
 						<?= $this->Html->link($video->name, $video->player_url) ?>
 						<small>
 							<?= $this->Html->link($video->artist->name, $video->artist->profile_url) ?>
+							<?php if ($video->featurings_formated): ?>
+								&nbsp;Part.&nbsp;
+								<?= $this->Text->toList($video->featurings_formated, '&') ?>
+							<?php endif ?>
 						</small>
 					</h<?= $headerSize?>>
-					<p>
-						<small>
-							<?= $this->Time->timeAgoInWords($video->created) ?>
-						</small>
-					</p>
+					<?php if (!isset($noFooter)): ?>
+						<p>
+							<small>
+								<?= $this->Time->timeAgoInWords($video->created) ?>
+							</small>
+						</p>
+					<?php endif ?>
 					<div class="video-btns-action" style="margin-top: -2px; position: absolute;">
 						<a href="#modal-share" data-toggle="modal">
 							<span class="glyphicon glyphicon-share-alt"></span>

@@ -31,7 +31,8 @@ class SiteController extends AppController
 			'conditions' => [
 				'Videos.destaque' => 1
 			],
-			'limit' => 2
+			'limit' => 2,
+			'order' => 'rand()'
 		]);
 
 		$artists = $this->Videos->Artists->find('all', [
@@ -49,7 +50,7 @@ class SiteController extends AppController
 			'conditions' => [
 				'Videos.is_active' => 1
 			],
-			'limit' => 10
+			'limit' => 4
 		]);
 
 		$risings = $this->Videos->find('all', [
@@ -60,7 +61,8 @@ class SiteController extends AppController
 			'conditions' => [
 				'Videos.is_active' => 1
 			],
-			'limit' => 10
+			'limit' => 6,
+			'order' => 'rand()'
 		]);
 
 		$this->set(compact('destaques', 'artists', 'trends', 'risings'));
@@ -69,7 +71,7 @@ class SiteController extends AppController
 	public function player($slug = null)
 	{
 		$video = $this->Videos->find('all', [
-			'contain' => ['Artists'],
+			'contain' => ['Artists', 'Featurings'],
 			'conditions' => [
 				'Videos.slug' => $slug
 			]
@@ -80,8 +82,10 @@ class SiteController extends AppController
 				'Artists'
 			],
 			'conditions' => [
-				'Videos.is_active' => 1
-			]
+				'Videos.is_active' => 1,
+			],
+			'limit' => 6,
+			'order' => 'rand()'
 		]);
 
 		$videos = $this->Videos->find('all', [

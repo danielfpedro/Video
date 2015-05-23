@@ -1,3 +1,4 @@
+<?= $this->assign('title', 'Home') ?>
 <?= $this->element('Site/header') ?>
 <?= $this->Html->script('Site/home', ['inline' => false]) ?>
 
@@ -26,7 +27,7 @@
 			</h2>
 			<div class="row">
 				<?php foreach ($artists as $artist): ?>
-					<div class="col-md-2">
+					<div class="col-md-2 col-sm-2 col-xs-2">
 						<?= $this->element('Site/box_artists', [
 							'artist' => $artist,
 							'imageSize' => 60,
@@ -45,12 +46,15 @@
 	</div>
 
 	<div class="row">
-		<div class="col-md-4">
+		<div class="col-md-5">
 			<h2 class="title">
 				Novidades
 			</h2>
-			<?= $this->cell('Newest', ['limit' => 10]) ?>
+			<?= $this->cell('Newest', ['limit' => 15]) ?>
 		</div>
+		<?php if (1 == 4): ?>
+			
+		
 		<div class="col-md-3">
 			<h2 class="title">
 				Subindo
@@ -58,20 +62,23 @@
 		
 			<div class="row">
 				<?php foreach ($risings as $rising): ?>
-					<div class="col-md-12" style="margin-bottom: 15px;">
-						<?= $this->element('Site/box_video', ['headerSize' => 4, 'video' => $rising]) ?>
+					<div class="box-video-rising">
+						<div class="col-md-12 col-sm-4">
+							<?= $this->element('Site/box_video', ['headerSize' => 4, 'video' => $rising]) ?>
+						</div>
 					</div>
 				<?php endforeach ?>
 			</div>
 		</div>
-		<div class="col-md-5">
+		<?php endif ?>
+		<div class="col-md-7">
 			<h2 class="title">
 				#Trends
 			</h2>
 		
 			<div class="row">
 				<?php foreach ($trends as $trend): ?>
-					<div class="col-md-12" style="margin-bottom: 15px;">
+					<div class="col-md-12 col-sm-4" style="margin-bottom: 25px;">
 						<?= $this->element('Site/box_video', ['headerSize' => 3, 'video' => $trend]) ?>
 					</div>
 				<?php endforeach ?>

@@ -18,7 +18,11 @@
 			<h<?= $headerSize ?> class="box-video-title">
 				<?= $this->Html->link($video->name, $video->player_url) ?>
 				<small>
-					<?= $this->Html->link($video->artist->slug, $video->artist->profile_url) ?>
+					<?= $this->Html->link($video->artist->name, $video->artist->profile_url) ?>
+					<?php if ($video->featurings_formated): ?>
+						&nbsp;Part.&nbsp;
+						<?= $this->Text->toList($video->featurings_formated, '&') ?>
+					<?php endif ?>
 				</small>
 			</h<?= $headerSize ?>>
 			
