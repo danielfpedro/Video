@@ -18,7 +18,14 @@
 					class="embed-responsive embed-responsive-16by9"
 					style="background-color: #E7E7E7; background-image: url(../../img/<?= $video->photo_lg ?>); background-size: cover">
 
-					<iframe data-url="https://www.youtube.com/embed/<?= $video->embed ?>?autoplay=1&modestbranding=1" id="player" class="embed-responsive-item" src="" frameborder="0" allowfullscreen></iframe>
+					<iframe
+						data-url="https://www.youtube.com/embed/<?= $video->embed ?>?autoplay=1&fs=0&iv_load_policy=0&rel=0&showinfo=0"
+						id="player"
+						class="embed-responsive-item"
+						src=""
+						frameborder="0"
+						allowfullscreen>
+					</iframe>
 
 					<div id="player-placeholder" style="width: 84px; left: 50%; top: 50%; position:absolute;margin-left: -42px; margin-top: -42px; ">
 						<?= $this->Html->image('play.png', ['width' => 84]) ?>

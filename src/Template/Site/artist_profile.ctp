@@ -39,7 +39,7 @@
 						<br>
 					<?php endif ?>
 					<br>
-					<button class="btn btn-primary btn-xs" style="width: 60%;">Seguir</button>
+					<button id="btn-like" class="btn btn-success btn-xs" style="width: 60%;">Seguir</button>
 				</div>
 				<div class="col-md-9">
 					<div class="row" style="margin: 40px 0 80px 0;">

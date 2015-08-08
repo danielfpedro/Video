@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a450d4501caa315dd57c7b00e3e3c34a",
+    "hash": "05e02a721eb7c5ca9e57809a05a13671",
     "packages": [
         {
             "name": "aura/installer-default",
@@ -340,6 +340,43 @@
                 "upload"
             ],
             "time": "2015-05-01 08:33:22"
+        },
+        {
+            "name": "holt59/cakephp3-bootstrap3-helpers",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Holt59/cakephp3-bootstrap3-helpers.git",
+                "reference": "5c6dea0edd06d0a869e50ab16829e8e4a14c5d0d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Holt59/cakephp3-bootstrap3-helpers/zipball/5c6dea0edd06d0a869e50ab16829e8e4a14c5d0d",
+                "reference": "5c6dea0edd06d0a869e50ab16829e8e4a14c5d0d",
+                "shasum": ""
+            },
+            "require": {
+                "cakephp/cakephp": "~3.0"
+            },
+            "type": "cakephp-plugin",
+            "extra": {
+                "installer-name": "Bootstrap3"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Bootstrap3\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache"
+            ],
+            "description": "Bootstrap 3 Helpers for CakePHP 3.0",
+            "keywords": [
+                "bootstrap",
+                "cakephp"
+            ],
+            "time": "2015-05-27 20:28:44"
         },
         {
             "name": "imagine/imagine",
@@ -1197,6 +1234,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "davidyell/proffer": 20,
+        "holt59/cakephp3-bootstrap3-helpers": 20,
         "psy/psysh": 0
     },
     "prefer-stable": true,

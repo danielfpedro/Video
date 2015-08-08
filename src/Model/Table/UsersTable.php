@@ -58,15 +58,15 @@ class UsersTable extends Table
             ->requirePresence('password', 'create')
             ->notEmpty('password');
             
-        $validator
-            ->add('is_active', 'valid', ['rule' => 'numeric'])
-            ->requirePresence('is_active', 'create')
-            ->notEmpty('is_active');
+        // $validator
+        //     ->add('is_active', 'valid', ['rule' => 'numeric'])
+        //     ->requirePresence('is_active', 'create')
+        //     ->notEmpty('is_active');
             
-        $validator
-            ->add('is_deleted', 'valid', ['rule' => 'numeric'])
-            ->requirePresence('is_deleted', 'create')
-            ->notEmpty('is_deleted');
+        // $validator
+        //     ->add('is_deleted', 'valid', ['rule' => 'numeric'])
+        //     ->requirePresence('is_deleted', 'create')
+        //     ->notEmpty('is_deleted');
 
         return $validator;
     }

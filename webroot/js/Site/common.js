@@ -1,5 +1,42 @@
 $(function(){
 
+	var btnLikeText = 'Seguir';
+	var btnUnLikeText = 'Remover';
+	var btnLikingText = 'Seguindo';
+
+	var btnLikeClass = 'btn-default';
+	var btnUnLikeClass = 'btn-danger';
+	var btnLikingClass = 'btn-primary';
+
+	$('button#btn-like').click(function(){
+		var $this = $(this);
+		var liked = $this.data('liked');
+		if (!liked) {
+			$this.removeClass('btn-default').addClass('btn-primary');
+			$this.text('Seguindo');
+		} else {
+			$this.removeClass('btn-danger').addClass('btn-default');
+			$this.text('Seguir');
+		}
+		$this.data('liked', !liked);
+	});
+
+	$('button#btn-like').hover(function(){
+		var $this = $(this);
+		var liked = $this.data('liked');
+		if (liked) {
+			$this.removeClass('btn-primary').addClass('btn-danger');
+			$this.text('Remover');
+		}
+	}, function(){
+		var $this = $(this);
+		var liked = $this.data('liked');
+		if (liked) {
+			$this.removeClass('btn-danger').addClass('btn-primary');
+			$this.text('Seguindo');
+		}
+	});
+
 	$('.box-video').hover(function(e) {
 	    $(this).find('.img-overlay').stop().fadeIn('slow');
 	    $(this).find('.video-btns-action').stop().fadeIn('fast');

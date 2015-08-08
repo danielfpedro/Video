@@ -11,8 +11,8 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
-    <?= $this->Html->css('../components/bootstrap/dist/css/bootstrap.min') ?>
-    <?= $this->Html->css('bootstrap.paper.min') ?>
+    
+    <?= $this->Html->css('../components/bootstrap/dist/css/bootstrap.paper.min') ?>
     <?= $this->Html->css('../components/Buttons/css/buttons.min') ?>
 
     <?= $this->Html->css('style') ?>
@@ -30,7 +30,7 @@
 </head>
 <body>
 
-<div
+ <div
     class="modal fade"
     id="modal-share">
     <div class="modal-dialog">
@@ -61,12 +61,12 @@
                 </span>
                 </div>
             </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+        </div>
+    </div>
+</div>
 
 
-<div
+<!-- <div
     class="modal fade"
     id="modal-playlists"
     data-base-url="<?= $this->Url->build(['controller' => 'Site', 'action' => 'playlistsModal'])?>">
@@ -82,14 +82,13 @@
         </div>
       </div>
     </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-
-    <?= $this->Flash->render() ?>
-    <?= $this->fetch('content') ?>
-
+  <!--</div>
+</div>
+ -->
+    <div class="wrapper">
+        <?= $this->Flash->render() ?>
+        <?= $this->fetch('content') ?>    
+    </div>
     <?= $this->element('Site/footer') ?>
-
 </body>
 </html>

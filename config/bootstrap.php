@@ -180,6 +180,7 @@ Request::addDetector('tablet', function ($request) {
  */
 
 Plugin::load('Migrations');
+Plugin::load('Bootstrap3');
 Plugin::load('Proffer', ['bootstrap' => true]);
 
 // Only try to load DebugKit in development mode

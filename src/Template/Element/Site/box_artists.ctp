@@ -10,6 +10,13 @@
 		<h3 class="media-heading truncate box-artists-title">
 			<?= $this->Html->link($artist->name, $artist->profile_url, ['style' => 'font-weight: bold;']) ?>
 		</h3>
-		<button type="button" class="btn btn-success btn-xs" style="text-transform: none;">Seguir</button>
+		<button
+			id="btn-like"
+			type="button"
+			class="btn btn-default btn-xs"
+			data-liked="0"
+			style="text-transform: none;">
+			Seguir
+		</button>
 	</div>
 </div>

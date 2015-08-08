@@ -15,6 +15,7 @@
 namespace App\Controller;
 
 use Cake\Controller\Controller;
+Use Cake\Event\Event;
 
 /**
  * Application Controller
@@ -26,6 +27,20 @@ use Cake\Controller\Controller;
  */
 class AppController extends Controller
 {
+    public $helpers = [
+        'Html' => [
+            'className' => 'Bootstrap3.BootstrapHtml'
+        ],
+        'Form' => [
+            'className' => 'Bootstrap3.BootstrapForm'
+        ],
+        'Paginator' => [
+            'className' => 'Bootstrap3.BootstrapPaginator'
+        ],
+        'Modal' => [
+            'className' => 'Bootstrap3.BootstrapModal'
+        ]
+    ];
 
     /**
      * Initialization hook method.
@@ -38,5 +53,23 @@ class AppController extends Controller
     {
         parent::initialize();
         $this->loadComponent('Flash');
+
+        $this->loadComponent('Auth', [
+            'authenticate' => [
+                'Form' => [
+                    'fields' => ['username' => 'email']
+                ]
+            ],
+            'loginRedirect' => [
+                'controller' => 'Site',
+                'action' => 'home'
+            ],
+            'logoutRedirect' => [
+                'controller' => 'Site',
+                'action' => 'home'
+            ]
+        ]);
+
+        $this->set(['loggedinUser' => $this->Auth->user()]);
     }
 }

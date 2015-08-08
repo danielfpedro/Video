@@ -1,89 +1,3 @@
-<!-- <div class="header-wrap">
-	<div class="container">
-		<div class="row home-row-header">
-			<div class="col-md-5">
-				<div class="row">
-					<div class="col-md-2">
-						<?= $this->Html->image('logo.png', ['class' => 'img-responsive', 'url' => ['controller' => 'Site', 'action' => 'home']]) ?>		
-					</div>
-					<div class="col-md-10" style="margin-top: 8px;">
-						
-						<form action="/videos/site/search" method="GET">
-							<div class="input-group">
-								<input type="text" class="form-control" name="q" placeholder="Pesquisar..." style="padding-left: 18px;border-bottom-left-radius: 40px;border-top-left-radius: 40px;">
-								<span class="input-group-btn">
-									<button class="btn btn-default" type="button" style="border-bottom-right-radius: 40px;border-top-right-radius: 40px;">
-										<span class="glyphicon glyphicon-search"></span>
-									</button>
-								</span>
-							</div>
-						</form>
-						
-					</div>
-				</div>
-			</div>
-			<div class="col-md-7" style="margin-top: 8px;">
-
-				<div class="row">
-					<div class="col-md-8">
-<ul class="nav nav-pills pull-right">
-					<li>
-						<?= $this->Html->link('Home', ['action' => 'home']) ?>	
-					</li>
-					<li>
-						<?= $this->Html->link('Playlists', ['action' => 'playlists']) ?>	
-					</li>
-				</ul>
-					</div>
-					<div class="col-md-4" style="">
-						<div class="media">
-						<div class="media-left">
-							<?= $this->Html->image('kanye-avatar.jpg', ['class' => 'media-object img-circle', 'width' => 35]) ?>
-						</div>
-						<div class="media-body">
-							<a href="#" data-toggle="dropdown">
-								<h5 class="media-heading clearfix" style="margin-top: 12px;">Daniel Pedro
-									<span class="caret"></span>
-								</h5>
-							</a>
-							<ul class="dropdown-menu dropdown-menu-right" role="menu" style="z-index: 9999999">
-								<li role="presentation" class="dropdown-header">
-									Minha Coleção
-								</li>
-								<li role="presentation">
-									<?= $this->Html->link('Artistas', ['action' => 'myProfile']) ?>
-								</li>
-								<li role="presentation">
-									<?= $this->Html->link('Favoritos', ['action' => 'stared']) ?>
-								</li>
-								<li role="presentation">
-									<?= $this->Html->link('Playlists', ['action' => 'myPlaylists']) ?>
-								</li>
-								<li class="divider">
-									
-								</li>
-								<li role="presentation">
-									<?= $this->Html->link('Configurações', []) ?>
-								</li>
-								<li class="divider">
-									
-								</li>
-								<li role="presentation">
-									<?= $this->Html->link('Sair', []) ?>
-								</li>
-							</ul>
-						</div>
-					</div>
-
-					</div>
-				
-					
-				
-				</div>
-			</div>
-		</div>
-	</div>
-</div> -->
 <nav class="navbar navbar-default navbar-fixed-top" id="header">
 	<div class="container" >
 
@@ -118,12 +32,27 @@
       </form>
    <ul class="nav navbar-nav navbar-left">
         <li>
-        	<?= $this->Html->link('Home', ['action' => 'home']) ?>
+        	<?= $this->Html->link('Home', ['controller' => 'Site', 'action' => 'home']) ?>
         </li>
                 <li>
-        	<?= $this->Html->link('Playlists', ['action' => 'playlists']) ?>
+        	<?= $this->Html->link('Playlists', ['controller' => 'Site', 'action' => 'playlists']) ?>
         </li>
-        </ul> 
+       </ul>
+
+       <?php if (!$loggedinUser): ?>
+       	
+       
+       <div class="pull-right">
+    	
+	    	<?= $this->Html->link('Criar Conta',
+	    		['controller' => 'Users', 'action' => 'add'],
+	    		['class' => 'btn btn-default btn-sm navbar-btn']) ?> 
+	    	&nbsp;
+	    	<?= $this->Html->link('Fazer login',
+	    		['controller' => 'Users', 'action' => 'login'],
+	    		['class' => 'btn btn-primary btn-sm navbar-btn']) ?> 
+    	</div>
+	<?php else: ?>
       <ul class="nav navbar-nav navbar-right">
 
 		<li>
@@ -133,35 +62,36 @@
         			'escape' => false
         		]) ?>
         </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-          <?= $this->Html->image('kanye-avatar.jpg', ['class' => 'img-circle', 'width' => 23]) ?>&nbsp;&nbsp;Daniel Pedro <span class="glyphicon glyphicon-chevron-down" style="font-size:10px;"></span></a>
-			<ul class="dropdown-menu" role="menu">
-				<li role="presentation" class="dropdown-header">
-					Minha Coleção
-				</li>
-				<li role="presentation">
-					<?= $this->Html->link('Artistas', ['action' => 'myProfile']) ?>
-				</li>
-				<li role="presentation">
-					<?= $this->Html->link('Favoritos', ['action' => 'stared']) ?>
-				</li>
-				<li role="presentation">
-					<?= $this->Html->link('Playlists', ['action' => 'myPlaylists']) ?>
-				</li>
-				<li class="divider">
-					
-				</li>
-				<li role="presentation">
-					<?= $this->Html->link('Configurações', []) ?>
-				</li>
-				<li class="divider"></li>
-				<li role="presentation">
-					<?= $this->Html->link('Sair', []) ?>
-				</li>
-			</ul>
-        </li>
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+	          <?= $this->Html->image('kanye-avatar.jpg', ['class' => 'img-circle', 'width' => 23]) ?>&nbsp;&nbsp;Daniel Pedro <span class="glyphicon glyphicon-chevron-down" style="font-size:10px;"></span></a>
+				<ul class="dropdown-menu" role="menu">
+					<li role="presentation" class="dropdown-header">
+						Minha Coleção
+					</li>
+					<li role="presentation">
+						<?= $this->Html->link('Artistas', ['action' => 'myProfile']) ?>
+					</li>
+					<li role="presentation">
+						<?= $this->Html->link('Favoritos', ['action' => 'stared']) ?>
+					</li>
+					<li role="presentation">
+						<?= $this->Html->link('Playlists', ['action' => 'myPlaylists']) ?>
+					</li>
+					<li class="divider">
+						
+					</li>
+					<li role="presentation">
+						<?= $this->Html->link('Configurações', []) ?>
+					</li>
+					<li class="divider"></li>
+					<li role="presentation">
+						<?= $this->Html->link('Sair', ['controller' => 'Users', 'action' => 'logout']) ?>
+					</li>
+				</ul>
+	        </li>
       </ul>
+        <?php endif ?>
     </div><!-- /.navbar-collapse -->
 
  <!-- <div class="navbar-header">

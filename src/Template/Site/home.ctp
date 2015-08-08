@@ -46,16 +46,26 @@
 	</div>
 
 	<div class="row">
-		<div class="col-md-5">
+		<div class="col-md-3">
 			<h2 class="title">
 				Novidades
 			</h2>
 			<?= $this->cell('Newest', ['limit' => 15]) ?>
 		</div>
-		<?php if (1 == 4): ?>
-			
+		<div class="col-md-4">
+			<h2 class="title">
+				#Trends
+			</h2>
 		
-		<div class="col-md-3">
+			<div class="row">
+				<?php foreach ($trends as $trend): ?>
+					<div class="col-md-12 col-sm-4" style="margin-bottom: 25px;">
+						<?= $this->element('Site/box_video', ['headerSize' => 3, 'video' => $trend]) ?>
+					</div>
+				<?php endforeach ?>
+			</div>
+		</div>
+		<div class="col-md-5">
 			<h2 class="title">
 				Subindo
 			</h2>
@@ -66,20 +76,6 @@
 						<div class="col-md-12 col-sm-4">
 							<?= $this->element('Site/box_video', ['headerSize' => 4, 'video' => $rising]) ?>
 						</div>
-					</div>
-				<?php endforeach ?>
-			</div>
-		</div>
-		<?php endif ?>
-		<div class="col-md-7">
-			<h2 class="title">
-				#Trends
-			</h2>
-		
-			<div class="row">
-				<?php foreach ($trends as $trend): ?>
-					<div class="col-md-12 col-sm-4" style="margin-bottom: 25px;">
-						<?= $this->element('Site/box_video', ['headerSize' => 3, 'video' => $trend]) ?>
 					</div>
 				<?php endforeach ?>
 			</div>

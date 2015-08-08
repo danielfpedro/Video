@@ -17,6 +17,7 @@ class SiteController extends AppController
 	{
 		$this->loadModel('Videos');
 		Parent::beforeFilter($event);
+		$this->Auth->allow();
 	}
 
 	public function home()
@@ -117,9 +118,12 @@ class SiteController extends AppController
 
 		$videos = $this->Videos->find('all', [
 			'contain' => [
-				'Artists'
+				'Artists', 'Featurings' => function($q) use ($artist){
+					return $q->where(['ArtistsVideos.artist_id' => $artist->id]);
+				}
 			],
 			'conditions' => [
+				'Artists.id' => $artist->id,
 				'Videos.is_active' => 1
 			]
 		]);
@@ -136,17 +140,25 @@ class SiteController extends AppController
 		}
 		$conditions[] = ['Videos.is_active' => 1];
 		$videos = $this->Videos->find('all', [
-			'contain' => ['Artists'],
+			'contain' => ['Artists', 'Featurings'],
 			'conditions' => $conditions
 		]);
-
-		$artists = [];
-		if ($videos) {
-			foreach ($videos as $video) {
-				$artists[] = $video->artist;
+		$artists = $videos->extract('artist')->toArray();
+		$featurings = $videos->extract('featurings')->toArray();
+		$featurings = array_filter($featurings);
+		$final = [];
+		foreach ($featurings as $featuring) {
+			foreach ($featuring as $key => $value) {
+				$final[] = $value;
 			}
 		}
-		$artists = array_unique($artists, SORT_REGULAR);
+		//$final = new Collection($final);
+		
+		// Debug($final);
+		// exit();
+		$final = array_merge($final, $artists);
+		//Debug($final);
+		$artists = array_unique($final, SORT_REGULAR);
 		$this->set(compact('videos', 'artists'));
 	}
 

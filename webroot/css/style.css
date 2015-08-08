@@ -1,5 +1,5 @@
 .container{
-  width:  1050px;
+  width:  1100px;
 }
 .navbar-default {
     /*background-color: #FFF;
@@ -19,7 +19,11 @@
 }*/
 body{
   background-color: #FCFCFC;
+  height: 100%;
   /*font-family: 'Roboto', sans-serif;*/
+}
+html, body{
+  height: 100%;
 }
 a {
   color: #444; }
@@ -302,3 +306,17 @@ h3.box-artists-title{
   font-size: 14px;
 }
 /*HEADER*/
+.wrapper{
+  min-height: 100%;
+  margin-bottom: -142px;
+}
+.wrapper:after {
+  content: "";
+  display: block;
+}
+.footer, .wrapper:after {
+  height: 142px; 
+}
+.footer{
+  height: 142px;
+}

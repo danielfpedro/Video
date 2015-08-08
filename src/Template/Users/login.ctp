@@ -9,13 +9,16 @@
                 <div class="col-md-12">
                     <h4>Entrar</h4>
                     <br>
-                    <?= $this->Form->create($user) ?>
-                        <?= $this->Form->input('name', ['placeholder' => 'Nome', 'label' => false]) ?>
-                        <?= $this->Form->input('birth_day', ['placeholder' => 'Data de Nascimento', 'label' => 'Data de Nascimento', 'type' => 'date']) ?>
+                    <?= $this->Form->create() ?>
                         <?= $this->Form->input('email', ['placeholder' => 'Email', 'label' => false]) ?>
                         <?= $this->Form->input('password', ['label' => 'Senha', 'placeholder' => 'Senha', 'label' => false]) ?>
-                        <?= $this->Form->submit('Criar conta', ['bootstrap-type' => 'primary', 'class' => 'btn-block']) ?>
+                        <?= $this->Form->submit('Entrar', ['bootstrap-type' => 'primary', 'class' => 'btn-block']) ?>
                     <?= $this->Form->end() ?>
+                    <div class="row" style="padding: 0 0 40px 0;">
+                        <div class="col-md-12">
+                            <?= $this->Html->link('Esqueceu a sua senha?', []) ?>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -26,11 +29,18 @@
             </div>
 
             <button class="btn btn-primary btn-block">
-                <span class="fa fa-facebook"></span> Registrar-se com Facebook
+                <span class="fa fa-facebook"></span> Entrar com Facebook
             </button>
             <button class="btn btn-danger btn-block">
-                <span class="fa fa-google"></span> Registrar-se com Gmail
+                <span class="fa fa-google"></span> Entrar com Gmail
             </button>
+
+            <br>
+
+            <p class="text-muted text-center">
+            	Novo no app? <?= $this->Html->link('Registre-se!', ['controller' => 'Users', 'action' => 'add']) ?>
+            </p>
+
         </div>
     </div>  
     </div>
